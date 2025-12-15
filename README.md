@@ -24,7 +24,7 @@ We will compare the output file to your provided result hpl.out. For our conveni
 
 # Step 1 - ssh onto Hummingbird
 
-This guide serves to get you started on compiling HPL on UCSC's own supercomputing cluster, Hummingbird. Firstly, you need to connect to Hummingbird. Use
+Connect to Hummingbird. Use
 
 ```
 ssh cruzid@hb.ucsc.edu
