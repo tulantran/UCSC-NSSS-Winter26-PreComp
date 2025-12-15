@@ -95,6 +95,7 @@ If there is nothing there, your job has completed and you should look for the ou
 
 # Step 8 - Compare to the theoretical max and decide if you are satisfied :)
 
-Here's some info you need to calculate the theoretical max. 
+Here's some info you need to calculate the theoretical max:
+
 
 
