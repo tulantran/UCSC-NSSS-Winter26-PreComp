@@ -86,7 +86,7 @@ There are also a bunch of example templates in /hb/software/scripts! The most us
 ```
 sbatch hpl.cmd
 ```
-and thats all that you should put in your bash script!
+and thats the last that you should put in your bash script!
 
 To check the status of your job:
 ```
