@@ -2,7 +2,7 @@
 This repo is a guide to complete a mini-competition to run and optimize HPL on UCSC's cluster, Hummingbird. Your score will be based on your GFLOPs achievement.
 
 # Task
-You will need to complete a 2-node HPL run on Hummingbird, on the "instruction" partition. Try to tune this to achieve as many floating-point operations per second (FLOPS). The instruction partition consists of 2 AMD 6000 chips. We also refer to these chips as "nodes," within the partition. They each have 48 cores and 192GB, for a total of 96 cores and 384GB on the partition. Your only restriction is you may not use Spack to build it. 
+You will need to complete a 2-node HPL run on Hummingbird, on the "instruction" partition. Try to tune this to achieve as many floating-point operations per second (FLOPS). Hummingbird runs Fedora OS. The instruction partition consists of 2 AMD 6000 chips. We also refer to these chips as "nodes," within the partition. They each have 48 cores and 192GB, for a total of 96 cores and 384GB on the partition. Your only restriction is you may not use Spack to build it. Note that you also don't have sudo permissions. 
 
 You MUST submit the following files:
 - script.sh - a bash script that we can run to validate your run
@@ -15,14 +15,14 @@ To validate your run, we will create a new directory with only your HPL.dat, hpl
 ```
 bash script.sh
 ```
-from that same directory. Please test that your paths are set accordingly in your script. The last line in your script.shshould be 
+from that same directory. Please make sure that your paths are set accordingly. The last line in your script.sh should be 
 ```
 sbatch hpl.cmd 
 ```
-We will compare the output file to your provided result hpl.out
+We will compare the output file to your provided result hpl.out. For our convenience, please have the outputted hpl result be named validateHPL.out. If there are issues with this message @ttttt on discord. 
 
 
-# Step 1
+# Step 1 - ssh onto Hummingbird
 
 This guide serves to get you started on compiling HPL on UCSC's own supercomputing cluster, Hummingbird. Firstly, you need to connect to Hummingbird. Use
 
@@ -31,7 +31,7 @@ ssh cruzid@hb.ucsc.edu
 ```
 and login with your cruzid password to login to Hummingbird. Now, you should be logged in to Hummingbird!
 
-
+# Build HPL
 
 To start compiling HPL, you first need its source code. You can find it [here](https://www.netlib.org/benchmark/hpl/). Use
 ```
