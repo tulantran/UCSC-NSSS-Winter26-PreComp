@@ -19,7 +19,7 @@ from that same directory. Please make sure that your paths are set accordingly. 
 ```
 sbatch hpl.cmd 
 ```
-We will compare the output file to your provided result hpl.out. For our convenience, please have the outputted hpl result be named validateHPL.out. If there are issues with this message @ttttt on discord. 
+We will compare the output file to your provided result hpl.out. All steps below with a * must be included in your bash script. For our convenience, please have the outputted hpl result be named validateHPL.out. If there are issues with this message @ttttt on discord. 
 
 
 # Step 1 - ssh onto Hummingbird
@@ -76,9 +76,22 @@ shows modules you currently have loaded
 # Step 5 - Create your HPL.dat
 
 # Step 6 - Create your SLURM batch script
+Here is a template:
+```
+```
+For more general instructions on how to create these [here](https://hummingbird.ucsc.edu/documentation/creating-scripts-to-run-jobs/)
 
 # Step 7 - Submit your Job* 
+```
+sbatch hpl.cmd
+```
+and thats all that you should put in your bash script!
 
+To check the status of your job:
+```
+squeue -u $USER
+```
+If there is nothing there, your job has completed and you should look for the output file you named in your hpl.cmd script.
 
 # Step _ Compare to the theoretical max and decide if you are satisfied
 
