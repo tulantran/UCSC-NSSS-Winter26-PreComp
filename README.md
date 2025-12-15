@@ -31,6 +31,8 @@ ssh cruzid@hb.ucsc.edu
 ```
 and login with your cruzid password to login to Hummingbird. Now, you should be logged in to Hummingbird!
 
+If you get port 22 connection issue, you must use the school's VPN. Instructions [here](https://its.ucsc.edu/services/network-and-infrastructure/network-and-connectivity-management/campus-virtual-private-network-vpn/).
+
 # Step 2 - HPL
 
 To start compiling HPL, you first need its source code. You can find it [here](https://www.netlib.org/benchmark/hpl/). Use
