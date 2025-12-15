@@ -10,7 +10,7 @@ You MUST submit the following files:
 - hpl.cmd - the slurm batch script to submit your job
 - hpl.out - your HPL result 
 
-Please zip these 4 files and call it <FirstnameLastname>hbHPL.tar.
+Please zip these 4 files and call it FirstnameLastname.tar. 
 To valid your run, we will create a new directory with only your HPL.dat, hpl.cmd and script.cmd and run it using 
 ```bash script.sh
 ```
