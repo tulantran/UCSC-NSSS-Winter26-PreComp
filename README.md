@@ -64,7 +64,7 @@ loads ModuleName into your environment, updates environment variables
 ```
 module unload <ModuleName>
 ```
-unloads ModuleName into your environment, updates environment variables
+unloads ModuleName from your environment, updates environment variables
 
 ```
 module list
