@@ -2,7 +2,7 @@
 This repo is a guide to complete a mini-competition to run and optimize HPL on UCSC's cluster, Hummingbird. Your score will be based on your GFLOPs achievement.
 
 # Task
-You will need to complete a 2-node HPL run on Hummingbird, on the "instruction" partition. Try to tune this to get as many floating-point operations per second (FLOPS). The instruction partition consists of 2 AMD 6000 chips. We also refer to these chips as "nodes," within the partition. They each have 48 cores and 192GB, for a total of 96 cores and 384GB on the partition. Your only restriction is you may not use Spack to build it. 
+You will need to complete a 2-node HPL run on Hummingbird, on the "instruction" partition. Try to tune this to achieve as many floating-point operations per second (FLOPS). The instruction partition consists of 2 AMD 6000 chips. We also refer to these chips as "nodes," within the partition. They each have 48 cores and 192GB, for a total of 96 cores and 384GB on the partition. Your only restriction is you may not use Spack to build it. 
 
 You MUST submit the following files:
 - script.sh - a bash script that we can run to validate your run
