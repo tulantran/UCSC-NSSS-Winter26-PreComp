@@ -33,7 +33,7 @@ and login with your cruzid password to login to Hummingbird. Now, you should be 
 
 If you get port 22 connection issue, you must use the school's VPN. Instructions [here](https://its.ucsc.edu/services/network-and-infrastructure/network-and-connectivity-management/campus-virtual-private-network-vpn/).
 
-# Step 2 - HPL
+# Step 2 - HPL*
 
 To start compiling HPL, you first need its source code. You can find it [here](https://www.netlib.org/benchmark/hpl/). Use
 ```
@@ -41,7 +41,7 @@ wget "https://www.netlib.org/benchmark/hpl/hpl-2.3.tar.gz"
 ```
 to download it directly to the machine. Once you have the source code, use the `tar` command to untar the the downloaded file. You should end up with a directory called `hpl-2.3`. You then need to get its dependencies.
 
-# Step 2 - Dependencies
+# Step 3 - Dependencies*
 
 Hummingbird comes with many pre-optimized modules. You may either search through them and find out which ones are best for your run or build dependencies from source.
 
@@ -70,4 +70,16 @@ unloads ModuleName from your environment, updates environment variables
 module list
 ```
 shows modules you currently have loaded
+
+# Step 4 - Configure and make*
+
+# Step 5 - Create your HPL.dat
+
+# Step 6 - Create your SLURM batch script
+
+# Step 7 - Submit your Job* 
+
+
+# Step _ Compare to the theoretical max and decide if you are satisfied
+
 
