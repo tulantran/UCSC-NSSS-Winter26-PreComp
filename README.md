@@ -1,8 +1,8 @@
 # Winter Classic PreCompetition
-This repo is a guide to complete a mini-competition to run and optimize HPL on UCSC's cluster, Hummingbird. Your score will be based on your GFLOPs achievement.
+This repo is a guide to complete a mini-competition to run and optimize HPL on UCSC's cluster, Hummingbird. Your score will be based on your GFLOPs achievement. You can clone this to get the 2 template files included if you want.
 
 # Task Overview
-You will need to complete a 2-node HPL run on Hummingbird, on the "instruction" partition. Try to tune this to achieve as many floating-point operations per second (FLOPS) as you can. Hummingbird runs Fedora OS and uses SLURM for job scheduling. The instruction partition consists of 2 AMD 6000 chips. We also refer to these chips as "nodes," within the partition. Each node has 48 cores and 192GB, for a total of 96 cores and 384GB on the partition. Your only restriction is you may not use Spack to build it. Note that you also don't have sudo permissions so you will have to build everything from source or use pre-installed modules. 
+You will need to complete a 2-node HPL run on Hummingbird, on the "instruction" partition. Try to tune this to achieve as many floating-point operations per second (FLOPS) as you can. Hummingbird runs Fedora OS, uses SLURM for job scheduling and connected with 10Gbps shared ethernet. The instruction partition consists of 2 AMD chips. We also refer to these chips as "nodes," within the partition. Each node has 48 cores and 192GB, for a total of 96 cores and 384GB on the partition. Your only restriction is you may not use Spack to build it. Note that you also don't have sudo permissions so you will have to build everything from source or use pre-installed modules. 
 
 You MUST submit the following files:
 - script.sh - a bash script that we can use to validate your run (also good documentation practice)
@@ -74,11 +74,10 @@ shows modules you currently have loaded
 # Step 4 - Configure and make*
 
 # Step 5 - Create your HPL.dat
+This repo includes a template.
 
 # Step 6 - Create your SLURM batch script
-Here is a template:
-```
-```
+This repo includes a template.
 For more general instructions on how to create these [here](https://hummingbird.ucsc.edu/documentation/creating-scripts-to-run-jobs/).
 There are also a bunch of example templates in /hb/software/scripts! The most useful to you will probably be "slurm-mpi-job-example.slurm"
 
@@ -92,8 +91,10 @@ To check the status of your job:
 ```
 squeue -u $USER
 ```
-If there is nothing there, your job has completed and you should look for the output file you named in your hpl.cmd script.
+If there is nothing there, your job has completed and you should look for the output files you named in your hpl.cmd script.
 
-# Step _ Compare to the theoretical max and decide if you are satisfied
+# Step 8 Compare to the theoretical max and decide if you are satisfied :)
+
+Here's some info you need to calculate the theoretical Max
 
 
