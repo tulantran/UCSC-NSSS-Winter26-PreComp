@@ -12,9 +12,12 @@ You MUST submit the following files:
 
 Please zip these 4 files and call it FirstnameLastname.tar. 
 To validate your run, we will create a new directory with only your HPL.dat, hpl.cmd and script.cmd and run it using 
-``` bash script.sh
 ```
-from that same directory. Please test that your paths are set accordingly in your script. The last line in your script should be ``` sbatch hpl.cmd 
+bash script.sh
+```
+from that same directory. Please test that your paths are set accordingly in your script. The last line in your script should be 
+```
+sbatch hpl.cmd 
 ```
 We will compare the output file to your provided result hpl.out
 
