@@ -80,6 +80,7 @@ Here is a template:
 ```
 ```
 For more general instructions on how to create these [here](https://hummingbird.ucsc.edu/documentation/creating-scripts-to-run-jobs/)
+There are also a bunch of example templates in /hb/software/scripts! The most useful to you will probably be "slurm-mpi-job-example.slurm"
 
 # Step 7 - Submit your Job* 
 ```
