@@ -54,7 +54,7 @@ gives a list of modules available to load
 ```
 module spider <SearchWord>
 ```
-searches available modules related to your SearchWord, and tell you commands to load it. (since it may have dependency modules you need to load first)
+searches available modules related to your SearchWord, and tells you commands to load it. (since it may have dependency modules you need to load first)
 
 ```
 module load <ModuleName>
