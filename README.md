@@ -15,7 +15,7 @@ To validate your run, we will create a new directory with only your HPL.dat, hpl
 ```
 bash script.sh
 ```
-from that same directory. Please test that your paths are set accordingly in your script. The last line in your script should be 
+from that same directory. Please test that your paths are set accordingly in your script. The last line in your script.shshould be 
 ```
 sbatch hpl.cmd 
 ```
