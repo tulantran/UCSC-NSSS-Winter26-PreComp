@@ -50,7 +50,7 @@ module avail
 gives a list of modules available to load
 
 ```
-module spider <<SearchWord>>
+module spider <SearchWord>
 ```
 searches available modules related to your SearchWord, and tell you commands to load it. (since it may have dependency modules you need to load first)
 
