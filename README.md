@@ -93,8 +93,8 @@ squeue -u $USER
 ```
 If there is nothing there, your job has completed and you should look for the output files you named in your hpl.cmd script.
 
-# Step 8 Compare to the theoretical max and decide if you are satisfied :)
+# Step 8 - Compare to the theoretical max and decide if you are satisfied :)
 
-Here's some info you need to calculate the theoretical Max
+Here's some info you need to calculate the theoretical max. 
 
 
