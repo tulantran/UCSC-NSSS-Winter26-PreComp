@@ -64,7 +64,13 @@ If there is nothing there, your job has completed and you should look for the ou
 
 # Step 8 - Compare to the theoretical max and decide if you are satisfied :)
 
-Here's some info you need to calculate the theoretical max:
+The theoretical max of 32-core run on AMD Milan 7713 is 1.024 TFLOPS. Try to get as close to this as you can.
+
+If you are below 75% of this, there are simple things you can do that will make a huge difference.
+
+Justification: 
+- 
+
 
 
 
