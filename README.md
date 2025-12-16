@@ -1,8 +1,8 @@
 # Winter Classic PreCompetition
-This repo is a guide to complete a mini-competition to run and optimize HPL on a Jetstream2 cloud cluster, NAME TBD. Your score will be based on your GFLOPs achievement. You can clone this to get the 2 template files included if you want.
+This repo is a guide to complete a mini-competition to run and optimize HPL on a Jetstream2 cloud cluster we created, Slugalicious26. Your score will be based on your GFLOPs achievement. You can clone this to get the 2 template files included if you want.
 
 # Task Overview
-You will need to complete a 2-node HPL run on Hummingbird, on the "instruction" partition. Try to tune this to achieve as many floating-point operations per second (FLOPS) as you can. Hummingbird runs Fedora OS, uses SLURM for job scheduling and connected with 10Gbps shared ethernet. The instruction partition consists of 2 nodes each with a single  as "nodes," within the partition. Each node has 48 cores and 192GB, for a total of 96 cores and 384GB on the partition. Your only restriction is you may not use Spack to build it. Note that you also don't have sudo permissions so you will have to build everything from source or use pre-installed modules. 
+You will need to complete a 2-node HPL run on Slugalicious26, on any of the partitions (they're all identical). Try to tune this to achieve as many floating-point operations per second (FLOPS) as you can. They are all on Ubuntu Linux, using SLURM for job scheduling and connected with ethernet. Each partition consists of 2 nodes each. Since these are virtual, each node only has 16 cores but the processor it's running on is an AMD Milan 7713. Your only restriction is you may not use Spack to build it. Note that you also don't have sudo permissions so you will have to build everything from source or use pre-installed modules. 
 
 You MUST submit the following files:
 - script.sh - a bash script that we can use to validate your run (also good documentation practice)
