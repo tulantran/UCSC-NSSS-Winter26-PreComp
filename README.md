@@ -1,5 +1,5 @@
 # Winter Classic PreCompetition
-This repo is a guide to complete a mini-competition to run and optimize HPL on a Jetstream2 cloud cluster we created, Slugalicious26. Your score will be based on your GFLOPs achievement. You can clone this to get the 2 template files included if you want.
+This repo is a guide to complete a mini-competition to run and optimize HPL on a Jetstream2 cloud cluster we created, Slugalicious. Your score will be based on your GFLOPs achievement. You can clone this to get the 2 template files included if you want.
 
 # Task Overview
 You will need to complete a 2-node HPL run on Slugalicious26, on any of the partitions (they're all identical). Try to tune this to achieve as many floating-point operations per second (FLOPS) as you can. They are all on Ubuntu Linux, using SLURM for job scheduling and connected with ethernet. Each partition consists of 2 nodes each. Since these are virtual, each node only has 16 cores but are running on an AMD Milan 7713. Your only restriction is you may not use Spack to build it. Note that you also don't have sudo permissions so you will have to build everything from source or we will have a few unoptimized installations for you if you want a cop-out.
