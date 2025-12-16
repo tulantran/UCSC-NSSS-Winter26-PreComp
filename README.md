@@ -2,7 +2,7 @@
 This repo is a guide to complete a mini-competition to run and optimize HPL on a Jetstream2 cloud cluster we created, Slugalicious26. Your score will be based on your GFLOPs achievement. You can clone this to get the 2 template files included if you want.
 
 # Task Overview
-You will need to complete a 2-node HPL run on Slugalicious26, on any of the partitions (they're all identical). Try to tune this to achieve as many floating-point operations per second (FLOPS) as you can. They are all on Ubuntu Linux, using SLURM for job scheduling and connected with ethernet. Each partition consists of 2 nodes each. Since these are virtual, each node only has 16 cores but the processor it's running on is an AMD Milan 7713. Your only restriction is you may not use Spack to build it. Note that you also don't have sudo permissions so you will have to build everything from source or use pre-installed modules. 
+You will need to complete a 2-node HPL run on Slugalicious26, on any of the partitions (they're all identical). Try to tune this to achieve as many floating-point operations per second (FLOPS) as you can. They are all on Ubuntu Linux, using SLURM for job scheduling and connected with ethernet. Each partition consists of 2 nodes each. Since these are virtual, each node only has 16 cores but are running on an AMD Milan 7713. Your only restriction is you may not use Spack to build it. Note that you also don't have sudo permissions so you will have to build everything from source or we will have a few unoptimized installations for you if you want a cop-out.
 
 You MUST submit the following files:
 - script.sh - a bash script that we can use to validate your run (also good documentation practice)
@@ -24,14 +24,13 @@ We will compare the output file to your provided result hpl.out. All steps below
 
 # Step 1 - ssh onto Hummingbird
 
-Connect to Hummingbird. Use
+Connect to Slugalicious. Use
 
 ```
-ssh cruzid@hb.ucsc.edu
+ssh <<IP TBD>>
 ```
-and login with your cruzid password to login to Hummingbird. Now, you should be logged in to Hummingbird!
+and enter <<PW TBD>>
 
-If you get port 22 connection issue, you must use the school's VPN. Instructions [here](https://its.ucsc.edu/services/network-and-infrastructure/network-and-connectivity-management/campus-virtual-private-network-vpn/).
 
 # Step 2 - HPL*
 
@@ -43,34 +42,6 @@ to download it directly to the machine. Once you have the source code, use the `
 
 # Step 3 - Dependencies*
 
-Hummingbird comes with many pre-optimized modules. You may either search through them and find out which ones are best for your run or build dependencies from source.
-
-Here is a list of useful commands for modules:
-```
-module avail
-```
-gives a list of modules available to load
-
-```
-module spider <SearchWord>
-```
-searches available modules related to your SearchWord, and tells you commands to load it. (since it may have dependency modules you need to load first)
-
-```
-module load <ModuleName>
-```
-loads ModuleName into your environment, updates environment variables
-
-```
-module unload <ModuleName>
-```
-unloads ModuleName from your environment, updates environment variables
-
-```
-module list
-```
-shows modules you currently have loaded
-
 # Step 4 - Configure and make*
 
 # Step 5 - Create your HPL.dat
@@ -78,8 +49,6 @@ This repo includes a template.
 
 # Step 6 - Create your SLURM batch script
 This repo includes a template.
-For more general instructions on how to create these [here](https://hummingbird.ucsc.edu/documentation/creating-scripts-to-run-jobs/).
-There are also a bunch of example templates in /hb/software/scripts! The most useful to you will probably be "slurm-mpi-job-example.slurm"
 
 # Step 7 - Submit your Job* 
 ```
