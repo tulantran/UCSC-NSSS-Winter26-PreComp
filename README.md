@@ -6,7 +6,7 @@ First, we needed to select the number of nodes and how many cores they'd have. W
 ## Setting up accounts on login node
 We wanted the competition to all have separate home directories for each participant so to acheive that we needed to make an account for everyone. We just made an account for each person using their first name, all lowercase. And then we used a google form to collect what password everyone wanted and we used. 
 ```
-sudo adduser --disable-password
+sudo adduser --disable-password <user>
 ```
 ```
 sudo password <user>
