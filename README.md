@@ -1,10 +1,13 @@
 # How we set this competition up
 
 ## Selecting nodes
-First, we needed to select the number of nodes and how many cores they'd have. We were limited to 124 total cores and 5 total instances. We wanted to have multiple SLURM partitions so we decided on having 1 large login node and 4 large compute nodes. 
+First, we needed to select the number of nodes and how many cores they'd have. We were limited to 124 total cores and 5 total instances. We wanted to have multiple SLURM partitions so we decided on having 1 32-core login node and 4 16-core compute nodes split into 2 partitions. 
 
 ## Setting up accounts on login node
-We wanted the competition to all have separate home directories for each participant so to acheive that we needed to make an account for everyone. We just made an account for each person using their first name, all lowercase. And then we used a google form to collect what password everyone wanted and we used 
+We wanted the competition to all have separate home directories for each participant so to acheive that we needed to make an account for everyone. We just made an account for each person using their first name, all lowercase. And then we used a google form to collect what password everyone wanted and we used. 
+```
+sudo adduser --disable-password
+```
 ```
 sudo password <user>
 ```
