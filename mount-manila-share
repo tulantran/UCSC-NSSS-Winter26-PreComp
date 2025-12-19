@@ -1,0 +1,50 @@
+#!/bin/bash
+# mounting slugalicious share, each user with thier own directory 
+readonly SHARED_DIR= "shared"
+readonly ACCESS_KEY= "AQDMlURpVjswAxAAVg3uBcyF4sHUI+Bf9ML2Ng=="
+readonly ACCESS_TO= "slugaliciousness"
+
+BASE_DIR="/home/shared"
+sudo mkdir -p "$BASE_DIR"
+
+
+#-----make directory for every user------
+
+for user_dir in /home/*; do
+
+    username=$(basename "$user_dir")
+
+    if [[ -d "$user_dir" && "$username" != "ubuntu" && "$username" != "shared" ]]; then
+        echo "Creating shared directory for user: $username"
+        
+        sudo mkdir -p "$BASE_DIR/$username"
+
+        #make them owner
+        sudo chown "$username:$username" "$BASE_DIR/$username"
+
+        
+        #only they can see it
+        sudo chmod 700 "$BASE_DIR/$username"
+    fi
+done
+
+echo "Done! Directories created in $BASE_DIR"
+
+
+#-----manila stuf----
+
+#create this file with this line in it
+
+cat <<EOF > /etc/ceph/ceph.client.$ACCESS_TO.keyring
+[client.$ACCESS_TO]
+    key = $ACCESS_KEY
+EOF
+
+sudo chmod 600 /etc/ceph/ceph.client.$ACCESS_TO.keyring
+
+
+echo "149.165.158.38:6789,149.165.158.22:6789,149.165.158.54:6789,149.165.158.70:6789,149.165.158.86:6789:/volumes/_nogroup/a922f284-7c15-4b05-bab6-c887ecd31f93/eeeb285a-5e65-4d1e-ad68-97008d46b2cc $BASE_DIR ceph name=$ACCESS_TO,x-systemd.device-timeout=30,x-systemd.mount-timeout=30,noatime,_netdev,rw 0" >> /etc/fstab
+
+mount -a
+
+df -h|grep vol
