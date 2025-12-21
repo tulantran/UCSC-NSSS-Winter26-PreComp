@@ -4,7 +4,7 @@ SHARED_DIR="shared"
 ACCESS_KEY="AQDMlURpVjswAxAAVg3uBcyF4sHUI+Bf9ML2Ng=="
 ACCESS_TO="slugaliciousness"
 
-BASE_DIR="/home/shared"
+BASE_DIR="/mnt/$SHARED_DIR"
 sudo mkdir -p "$BASE_DIR"
 
 
