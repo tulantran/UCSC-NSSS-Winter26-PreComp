@@ -6,7 +6,7 @@ ACCESS_KEY="AQDMlURpVjswAxAAVg3uBcyF4sHUI+Bf9ML2Ng=="
 ACCESS_TO="slugaliciousness"
 PATH_THINGY="149.165.158.38:6789,149.165.158.22:6789,149.165.158.54:6789,149.165.158.70:6789,149.165.158.86:6789:/volumes/_nogroup/a922f284-7c15-4b05-bab6-c887ecd31f93/eeeb285a-5e65-4d1e-ad68-97008d46b2cc"
 
-BASE_DIR="/home/$SHARED_DIR"
+BASE_DIR="/mnt/$SHARED_DIR"
 sudo mkdir -p "$BASE_DIR"
 
 #create this file with this line in it
