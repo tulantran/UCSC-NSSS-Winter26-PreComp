@@ -14,7 +14,7 @@ for user_dir in /home/*; do
 
     username=$(basename "$user_dir")
 
-    if [[ -d "$user_dir" && "$username" != "ubuntu" && "$username" != "shared" ]]; then
+    if [[ -d "$user_dir" && "$username" != "ubuntu" ]]; then
         echo "Creating shared directory for user: $username"
         
         sudo mkdir -p "$BASE_DIR/$username"
