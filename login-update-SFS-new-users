@@ -31,21 +31,3 @@ done
 echo "Done! Directories created in $BASE_DIR"
 
 
-#-----manila stuf------- do not rerun if already mounted
-
-#create this file with this line in it
-
-cat <<EOF | sudo tee /etc/ceph/ceph.client.$ACCESS_TO.keyring
-[client.$ACCESS_TO]
-    key = $ACCESS_KEY
-EOF
-
-sudo chmod 600 /etc/ceph/ceph.client.$ACCESS_TO.keyring
-
-
-echo "149.165.158.38:6789,149.165.158.22:6789,149.165.158.54:6789,149.165.158.70:6789,149.165.158.86:6789:/volumes/_nogroup/a922f284-7c15-4b05-bab6-c887ecd31f93/eeeb285a-5e65-4d1e-ad68-97008d46b2cc $BASE_DIR ceph name=$ACCESS_TO,x-systemd.device-timeout=30,x-systemd.mount-timeout=30,noatime,_netdev,rw 0" | sudo tee -a /etc/fstab
-
-sudo systemctl daemon-reload
-sudo mount -a
-
-df -h|grep vol
