@@ -10,4 +10,15 @@
 #SBATCH --mem=< total ram in GB >G
 #SBATCH -t <maximum time in hh:mm:ss>
 
+#you can experiment with these:
+export OPENBLAS_NUM_THREADS=1
+export OMP_NUM_THREADS=1
+
+#probably put these for proper communication, feel free to look into why for js2
+export OMPI_MCA_btl_tcp_if_include=enp1s0 
+export OMPI_MCA_btl=self,vader,tcp 
+
+
 module load <ur modules maybe put a few lines of this one>
+
+mpirun -np <numprocs> xhpl
