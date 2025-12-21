@@ -8,7 +8,7 @@ BASE_DIR="/home/shared"
 sudo mkdir -p "$BASE_DIR"
 
 
-#-----make directory for every user------
+#-----make directory for every user------ can be re-run to update shared filesystem for new users
 
 for user_dir in /home/*; do
 
@@ -31,7 +31,7 @@ done
 echo "Done! Directories created in $BASE_DIR"
 
 
-#-----manila stuf----
+#-----manila stuf------- do not rerun if already mounted
 
 #create this file with this line in it
 
