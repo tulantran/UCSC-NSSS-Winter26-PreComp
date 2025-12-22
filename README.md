@@ -15,3 +15,7 @@ to set the password for each person.
 
 ## Setting up the manila share
 Jetstream doesn't let you easily set up a manila share from the exosphere interface, you have to use the horizon interface. [This](https://docs.jetstream-cloud.org/ui/horizon/manila/) guide is perfect for setting it up. Use [this](https://docs.jetstream-cloud.org/ui/horizon/login/) guide to log on to Horizon.
+
+
+## Setting up slurm
+For this, we decided to use most of the slurm script we made during the IndySCC competition. A lot of this was made by our fellow teammate Caleb Lin. We had to edit it to fit our needs. He also pulled some help from [Slurm for Dummies](https://github.com/SergioMEV/slurm-for-dummies).
