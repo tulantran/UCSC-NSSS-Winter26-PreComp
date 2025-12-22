@@ -1,10 +1,7 @@
 #!/bin/bash
 # mounting slugalicious share, each user with thier own directory 
-SHARED_DIR="shared"
-ACCESS_KEY="AQDMlURpVjswAxAAVg3uBcyF4sHUI+Bf9ML2Ng=="
-ACCESS_TO="slugaliciousness"
 
-BASE_DIR="/mnt/$SHARED_DIR"
+BASE_DIR="/home"
 sudo mkdir -p "$BASE_DIR"
 
 
