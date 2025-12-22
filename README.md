@@ -5,7 +5,8 @@ This repo is a guide to complete a mini-competition to run and optimize HPL on a
 You will need to complete a 2-node HPL run on Slugalicious26, on any of the partitions (they're all identical). Try to tune this to achieve as many floating-point operations per second (FLOPS) as you can. They are all on Ubuntu Linux, using SLURM for job scheduling and connected with ethernet. Each partition consists of 2 nodes each. Since these are virtual, each node only has 16 cores but are running on an AMD Milan 7713. Your only restriction is you may not use Spack to build it. Note that you also don't have sudo permissions so you will have to build everything from source or we will have a few unoptimized installations for you if you want a cop-out.
 
 You MUST submit the following files:
-- script.sh - a bash script that we can use to validate your run (also good documentation practice)
+- either:
+- - hplscript.sh - a bash script that we can use to validate your run (also good documentation practice)
 - HPL.dat - your parameter tunings for your final run
 - hpl.cmd - the slurm batch script to submit your job
 - hpl.out - your HPL result 
