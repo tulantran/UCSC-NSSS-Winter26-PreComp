@@ -1,5 +1,5 @@
 #!/bin/bash
-# mounting slugalicious share, each user with thier own directory 
+#update permissions for home user directories
 
 BASE_DIR="/home"
 sudo mkdir -p "$BASE_DIR"
