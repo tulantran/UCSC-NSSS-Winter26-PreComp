@@ -2,8 +2,11 @@ USERS=("tulan" "caleb") # Add all other synced usernames here
 
 echo "Starting SSH key generation for shared home cluster..."
 
-for USERNAME in "${USERS[@]}"; do
-    echo "Processing $USERNAME..."
+for user_dir in /home/*; do
+
+    username=$(basename "$user_dir")
+
+    if [[ -d "$user_dir" && "$username" != "ubuntu" ]]; then
 
     # 1. Generate keys if they don't exist
     # Use sudo -u to run as the target user
