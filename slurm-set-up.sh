@@ -74,7 +74,7 @@ sudo mkdir -p /var/spool/slurmctld
 sudo chown slurm:slurm /var/spool/slurmctld
 sudo chmod 755 /var/spool/slurmctld
 
-sudo tee /etc/slurm/slurm.conf > /dev/null << 'EOF'
+sudo tee /etc/slurm/slurm.conf  << 'EOF'
 # Slurm configuration for slugalicious
 ClusterName=slugalicious
 SlurmUser=slurm
@@ -100,7 +100,7 @@ KillWait=30
 CpuFreqGovernors=Performance
 
 # SelectType for 16-core nodes
-SelectType=select/cons_res
+SelectType=select/cons_tres
 SelectTypeParameters=CR_Core
 
 # Logging
@@ -109,10 +109,35 @@ SlurmdLogFile=/var/log/slurm/slurmd.log
 
 # Node definitions: 2 nodes for each partition, 16 cores each
 # Ensure these names match the actual hostnames of your worker nodes
-NodeName=compute-[1-2] CPUs=16 State=UNKNOWN
-NodeName=compute-[3-4] CPUs=16 State=UNKNOWN
+NodeName=compute-[1-2]-of-4 CPUs=16 Boards=1 SocketsPerBoard=16 CoresPerSocket=1 ThreadsPerCore=1 RealMemory=60263 State=UNKNOWN
+NodeName=compute-[3-4]-of-4 CPUs=16 Boards=1 SocketsPerBoard=16 CoresPerSocket=1 ThreadsPerCore=1 RealMemory=60263 State=UNKNOWN
+
 
 # Partition definitions
-PartitionName=slimey Nodes=compute-[1-2] Default=YES MaxTime=INFINITE State=UP
-PartitionName=gooey  Nodes=compute-[3-4] Default=NO  MaxTime=INFINITE State=UP
+PartitionName=slimey Nodes=compute-[1-2]-of-4 Default=YES MaxTime=INFINITE State=UP
+PartitionName=gooey  Nodes=compute-[3-4]-of-4 Default=NO  MaxTime=INFINITE State=UP
 EOF
+
+echo "-------------SLURM COPIES----------------"
+for NODE_INFO in "${NODES[@]}"; do
+    NODE="${NODE_INFO%%:*}"
+    PASS="${NODE_INFO##*:}"
+
+    echo "[*] Copying Slurm Conf to $NODE... <---------------------"
+    sshpass -p "$PASS" ssh -o StrictHostKeyChecking=no "$SSH_USER@$NODE" bash -c "'
+        sudo DEBIAN_FRONTEND=noninteractive apt install -y -qq slurm-wlm libpmix-dev libpmix2
+    '"
+    sudo cat /etc/slurm/slurm.conf | \
+        sshpass -p "$PASS" ssh "$SSH_USER@$NODE" "sudo tee /etc/slurm/slurm.conf "
+    sshpass -p "$PASS" ssh -o StrictHostKeyChecking=no "$SSH_USER@$NODE" bash -c "'
+        sudo mkdir -p /var/spool/slurmd &&
+        sudo chown slurm:slurm /var/spool/slurmd &&
+        sudo chmod 755 /var/spool/slurmd &&
+        sudo systemctl enable slurmd &&
+        sudo systemctl restart slurmd &&
+        sudo systemctl status slurmd.service &&
+        echo \"Slurm on \$(hostname) at \$(date)\" | sudo tee /tmp/slurm_installed.txt
+    '"
+
+    echo "[+] Slurm installation marked on $NODE"
+done
