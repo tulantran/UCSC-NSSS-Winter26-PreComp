@@ -70,11 +70,16 @@ echo "-------------SLURM INSTALL----------------"
 sudo apt install -y -qq slurm-wlm libpmix-dev libpmix2 
 
 
+sudo mkdir -p /var/spool/slurmctld
+sudo chown slurm:slurm /var/spool/slurmctld
+sudo chmod 755 /var/spool/slurmctld
+
 sudo tee /etc/slurm/slurm.conf > /dev/null << 'EOF'
-# Slurm configuration for team 'nsss'
-ClusterName=nsss
+# Slurm configuration for slugalicious
+ClusterName=slugalicious
 SlurmUser=slurm
-SlurmctldHost=login           # Change to your controller's hostname
+# Ensure 'slugalicious' resolves to your login node's internal IP in /etc/hosts
+SlurmctldHost=slugalicious
 
 StateSaveLocation=/var/spool/slurmctld
 SlurmdSpoolDir=/var/spool/slurmd
@@ -82,9 +87,7 @@ SlurmctldPidFile=/run/slurmctld.pid
 SlurmdPidFile=/run/slurmd.pid
 
 # Accounting configuration
-AccountingStorageType=accounting_storage/slurmdbd
-AccountingStorageHost=localhost
-AccountingStoragePort=6819
+AccountingStorageType=accounting_storage/none
 JobCompType=jobcomp/none
 
 ProctrackType=proctrack/linuxproc
@@ -96,17 +99,20 @@ KillWait=30
 
 CpuFreqGovernors=Performance
 
-# Use the simple 'linear' node selection plugin
-SelectType=select/linear
+# SelectType for 16-core nodes
+SelectType=select/cons_res
+SelectTypeParameters=CR_Core
 
 # Logging
 SlurmctldLogFile=/var/log/slurm/slurmctld.log
 SlurmdLogFile=/var/log/slurm/slurmd.log
 
-# Node and partition definitions
-# Adjust CPUs/Sockets/Cores/Threads from `lscpu`
-NodeName=node-[1-2] CPUs=64 State=UNKNOWN
-NodeName=node-small-[1-9]-of-10 CPUs=2 State=UNKNOWN
-PartitionName=debug Nodes=node-[1-2] Default=YES MaxTime=INFINITE State=UP
-PartitionName=small Nodes=node-small-[1-9]-of-10 Default=YES MaxTime=INFINITE State=UP
+# Node definitions: 2 nodes for each partition, 16 cores each
+# Ensure these names match the actual hostnames of your worker nodes
+NodeName=compute-[1-2] CPUs=16 State=UNKNOWN
+NodeName=compute-[3-4] CPUs=16 State=UNKNOWN
+
+# Partition definitions
+PartitionName=slimey Nodes=compute-[1-2] Default=YES MaxTime=INFINITE State=UP
+PartitionName=gooey  Nodes=compute-[3-4] Default=NO  MaxTime=INFINITE State=UP
 EOF
