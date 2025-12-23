@@ -69,11 +69,12 @@ echo "-------------SLURM INSTALL----------------"
 #SLURM install
 sudo apt install -y -qq slurm-wlm libpmix-dev libpmix2 
 
+
 sudo tee /etc/slurm/slurm.conf > /dev/null << 'EOF'
-???DUNNO AFTER THIS???
+# Slurm configuration for team 'nsss'
 ClusterName=nsss
 SlurmUser=slurm
-SlurmctldHost=slugalicious           # Change to your controller's hostname
+SlurmctldHost=login           # Change to your controller's hostname
 
 StateSaveLocation=/var/spool/slurmctld
 SlurmdSpoolDir=/var/spool/slurmd
@@ -94,3 +95,18 @@ InactiveLimit=0
 KillWait=30
 
 CpuFreqGovernors=Performance
+
+# Use the simple 'linear' node selection plugin
+SelectType=select/linear
+
+# Logging
+SlurmctldLogFile=/var/log/slurm/slurmctld.log
+SlurmdLogFile=/var/log/slurm/slurmd.log
+
+# Node and partition definitions
+# Adjust CPUs/Sockets/Cores/Threads from `lscpu`
+NodeName=node-[1-2] CPUs=64 State=UNKNOWN
+NodeName=node-small-[1-9]-of-10 CPUs=2 State=UNKNOWN
+PartitionName=debug Nodes=node-[1-2] Default=YES MaxTime=INFINITE State=UP
+PartitionName=small Nodes=node-small-[1-9]-of-10 Default=YES MaxTime=INFINITE State=UP
+EOF
