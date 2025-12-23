@@ -1,10 +1,10 @@
-USERS=("tulan" "caleb") # Add all other synced usernames here
+
 
 echo "Starting SSH key generation for shared home cluster..."
 
 for user_dir in /home/*; do
 
-    username=$(basename "$user_dir")
+    USERNAME=$(basename "$user_dir")
 
     if [[ -d "$user_dir" && "$username" != "ubuntu" ]]; then
 
