@@ -10,6 +10,10 @@
 #SBATCH --mem=< total ram in GB >G
 #SBATCH -t <maximum time in hh:mm:ss>
 
+
+export HPL_DIR="/path/to/hpl"
+export BLAS_DIR="/path/to/blas"
+export MPI_DIR="/path/to/mpi"
 #you can experiment with these:
 export OPENBLAS_NUM_THREADS=1
 export OMP_NUM_THREADS=1
@@ -18,7 +22,5 @@ export OMP_NUM_THREADS=1
 export OMPI_MCA_btl_tcp_if_include=enp1s0 
 export OMPI_MCA_btl=self,vader,tcp 
 
-
-module load <ur modules maybe put a few lines of this one>
 
 mpirun -np <numprocs> xhpl
