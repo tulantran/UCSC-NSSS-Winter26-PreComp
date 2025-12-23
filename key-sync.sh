@@ -36,6 +36,7 @@ for user_dir in /home/*; do
             chmod 600 ~/.ssh/config
         fi
     "
+    fi
 done
 
 echo "SSH setup complete. Users can now move between nodes without passwords."
