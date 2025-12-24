@@ -20,7 +20,9 @@ Jetstream doesn't let you easily set up a manila share from the exosphere interf
 
 ### Home sharing
 
-This manila share was mounted at /home/. This lets things like ssh keys synchronize very easily over the compute and login nodes. This was pretty handy when syncing all of the ssh keys so things like MPI and HPL which use ssh could work. Instead of having to manually copy a bunch of ssh keys, the manila share handled things quite nicely.
+This manila share was mounted at /home/. This lets things like ssh keys synchronize very easily over the compute and login nodes. This was pretty handy when syncing all of the ssh keys so things like MPI and HPL which use ssh could work. Instead of having to manually copy a bunch of ssh keys, the manila share handled things quite nicely. 
+
+We created a 500gb share and mounted it using our `mount-home-manila-share.` We sshed into each individual node
 
 ### Problems..
 Nothing works perfectly the first try. When trying to login to a compute node from the login node when logged in as a user, I encountered issues with the permissions for .ssh being set incorrectly. This wouldn't let the user write its own keys or read them either. The `.ssh` directory needed to have `700` permissions and the keys need `600` permissions. So, I had to set the permissions correctly. Once that was done, I realized I had to also generate keys for all of the users so they were all present in their directories (and with correct perms set). The script `ssh-gen-fix-perms.sh` goes over this.
