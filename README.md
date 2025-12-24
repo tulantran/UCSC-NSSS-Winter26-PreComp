@@ -13,10 +13,7 @@ sudo password <user>
 ```
 to set the password for each person.
 
-...
-
-
-## Sync users accross nodes
+We sync the users to the rest of the nodes after slurm is set up for exouser.
 
 ## Setting up the manila share
 Jetstream doesn't let you easily set up a manila share from the exosphere interface, you have to use the horizon interface. [This](https://docs.jetstream-cloud.org/ui/horizon/manila/) guide is perfect for setting it up. Use [this](https://docs.jetstream-cloud.org/ui/horizon/login/) guide to log on to Horizon.
