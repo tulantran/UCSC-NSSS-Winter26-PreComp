@@ -9,7 +9,7 @@ We wanted the competition to all have separate home directories for each partici
 sudo adduser --disable-password <user>
 ```
 ```
-sudo password <user>
+sudo passwd <user>
 ```
 to set the password for each person.
 
