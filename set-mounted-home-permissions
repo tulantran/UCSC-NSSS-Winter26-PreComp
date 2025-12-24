@@ -1,5 +1,5 @@
 #!/bin/bash
-#update permissions for home user directories
+# after mounting manila share, manually set permissions for users to access thier directories
 
 BASE_DIR="/home"
 sudo mkdir -p "$BASE_DIR"
