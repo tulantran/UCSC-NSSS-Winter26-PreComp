@@ -1,7 +1,10 @@
 #!/bin/bash
 #run to make sure user IDs are synced on worker nodes
+#run this and change these for each partition:
 PARTITION=slimey
-NODE_COUNT=gooey
+NODE_COUNT=2
+
+
 # 1. Define the range for human users (standard is 1000+)
 MIN_UID=1000
 MAX_UID=60000
