@@ -20,7 +20,7 @@ Jetstream doesn't let you easily set up a manila share from the exosphere interf
 
 ### Home sharing
 
-This manila share was mounted at /home/. This lets things like ssh keys synchronize very easily over the compute and login nodes. This was pretty handy when syncing all of the ssh keys so things like MPI and HPL which use ssh could work. Instead of having to manually copy a bunch of ssh keys, the manila share handled things quite nicely. 
+This manila share was mounted at /home/. This lets things like ssh keys synchronize very easily over the compute and login nodes. This was pretty handy when syncing all of the ssh keys so things like MPI and HPL which use ssh could work. Instead of having to manually copy a bunch of ssh keys, the manila share handled things quite nicely. It also allows for a seemless user experience.
 
 We created a 500gb share and mounted it using our `mount-home-manila-share.` We sshed into each individual node and ran this script. This could be automated using a similar ssh pass set up as we used in `slurm-set-up.sh` in the future.
 
