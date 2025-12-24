@@ -13,8 +13,10 @@ sudo password <user>
 ```
 to set the password for each person.
 
-### Problems...
-For some reason at first, compute node 3 and 4 didn't have any of the accounts. Weird, but by using the script `fix-compute-user-nodes.sh`, the accounts were made.
+...
+
+
+## Sync users accross nodes
 
 ## Setting up the manila share
 Jetstream doesn't let you easily set up a manila share from the exosphere interface, you have to use the horizon interface. [This](https://docs.jetstream-cloud.org/ui/horizon/manila/) guide is perfect for setting it up. Use [this](https://docs.jetstream-cloud.org/ui/horizon/login/) guide to log on to Horizon.
