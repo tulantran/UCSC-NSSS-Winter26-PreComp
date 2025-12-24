@@ -1,8 +1,8 @@
 #!/bin/bash
 #run to make sure user IDs are synced on worker nodes
 #run this and change these for each partition:
-PARTITION=slimey
-NODE_COUNT=2
+PARTITIONS=slimey,gooey
+NODE_COUNT=4
 
 
 # 1. Define the range for human users (standard is 1000+)
@@ -23,8 +23,8 @@ for USER_DATA in $USERS; do
 
     # 3. Use srun to create the group and user on all active worker nodes
     # --ntasks-per-node=1 ensures it runs once per machine
-    srun -p $PARTITION -N $NODE_COUNT --ntasks-per-node=1 sudo groupadd -g $GID_VAL $USERNAME 2>/dev/null
-    srun -p $PARTITION -N $NODE_COUNT --ntasks-per-node=1 sudo useradd -u $UID_VAL -g $GID_VAL -m -s /bin/bash $USERNAME 2>/dev/null
+    srun -partition=$PARTITION -N $NODE_COUNT --ntasks-per-node=1 sudo groupadd -g $GID_VAL $USERNAME 2>/dev/null
+    srun -partition=$PARTITION -N $NODE_COUNT --ntasks-per-node=1 sudo useradd -u $UID_VAL -g $GID_VAL -m -s /bin/bash $USERNAME 2>/dev/null
 done
 
 echo "Synchronization complete."
