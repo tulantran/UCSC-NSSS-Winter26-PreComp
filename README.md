@@ -43,12 +43,17 @@ wget "https://www.netlib.org/benchmark/hpl/hpl-2.3.tar.gz"
 to download it directly to the machine. Once you have the source code, use the `tar` command to untar the the downloaded file. You should end up with a directory called `hpl-2.3`. You then need to get its dependencies.
 
 # Step 3 - Dependencies*
-2 important things that High Performance Linpack needs to do solve Ax=b really fast:
+2 main important things that High Performance Linpack needs to do solve Ax=b really fast:
 
 - optimized Basic Linear Algebra Subroutines(BLAS)
 - optimized Message Passing Interface (MPI)
 
-Jetstream2 instances come with many pre-optimized libraries for their machines. I believe these are uniform on all of thier instances even if they are different chips so not all of the ones available are the best option for our purpose. If you end up using these, look into what they are first. 
+These libraries may or may not have other dependencies you need to build depending on how you choose them. The following are some options:
+
+## Jetstream2 modules
+
+Jetstream2 instances come with many pre-optimized libraries for their machines. I believe these are uniform on all of thier instances even if they are different chips so not all of the ones available are the best option for our purpose. If you end up using these, look into what they are first. MPI is the only easy one to find in here and theres a lot of those to choose from.
+
 The `module` command is a feature built into linux and available modules can be set up by admin to have an easy way to set up your environment. It automates setting environment variables and compilers for you. If you're curious about what exactly loading a certain module will do you can hit a:`module show <moduleName>` and it will print essentially the script it runs.
 
 Modules can be explored through these common commands:
@@ -64,7 +69,7 @@ There are a few others that can use their description to help you but Jetstream2
 # Step 4 - Configure and make*
 
 # Step 5 - Create your HPL.dat
-This repo includes a template. I've put X's where we will recommend how you set these in this section. These parameters will have the greatest effect on your run. You are welcome and encouraged to play with the other ones, where you may be able to squeeze out some extra flops. [This](https://www.netlib.org/benchmark/hpl/tuning.html) will walk you through how to set each parameter. When you submit the job using sbatch, make sure your HPL.dat is in the same directory.
+This repo includes a template. I've put X's where we will recommend how you set these in this section. These parameters will have the greatest effect on your run. You are welcome and encouraged to play with the other ones, where you may be able to squeeze out some extra flops. [This](https://www.netlib.org/benchmark/hpl/tuning.html) will walk you through how to set each parameter. When you submit the job using sbatch, make sure your HPL.dat is in the same directory, or set the directory in your SLURM batch script.
 
 
 # Step 6 - Create your SLURM batch script
