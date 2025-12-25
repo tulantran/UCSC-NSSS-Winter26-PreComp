@@ -13,7 +13,7 @@ You MUST submit the following files:
 - hpl.out - your HPL result 
 
 Please zip these 4 files and call it FirstnameLastname.tar. 
-To validate your run, we will create a new directory with only your HPL.dat, hpl.cmd and script.cmd and run it using 
+If you give us a script, to validate your run, we will create a new directory with only your HPL.dat, hpl.cmd and script.cmd and run it using 
 ```
 bash script.sh
 ```
