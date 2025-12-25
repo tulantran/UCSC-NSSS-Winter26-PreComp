@@ -7,7 +7,7 @@ You will need to complete a 2-node HPL run on Slugalicious26, on any of the part
 You MUST submit the following files:
 - either:
   - hplscript.sh - a bash script that we can use to validate your run (good documentation practice)
-  - hplreport.txt - description of what you did, what you tried along the way (still include some commands) and answer questions in this README 
+  - hplreport.txt - description/reflection of what you did and what you tried along the way (still include some commands). Give brief answers to questions in this README.
 - HPL.dat - your parameter tunings for your final run
 - hpl.cmd - the slurm batch script to submit your job
 - hpl.out - your HPL result 
