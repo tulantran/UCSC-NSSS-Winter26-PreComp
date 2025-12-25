@@ -67,6 +67,12 @@ There are a few others that can use their description to help you but Jetstream2
 
 
 # Step 4 - Configure and make*
+Once you've figured out your dependencies, you need to compile HPL itself. But first, we need to talk about how these dependencies are managed.
+
+## Linking is fun
+HPL depends on BLAS and MPI. You could try compiling HPL by running the `configure` script. That will make a `Makefile` you can use to then run `make`, and that should succesfully compile HPL. But that isn't a super precise way to do it. It's hard to know which versions of the dependencies the `configure` script found. And on top of that, it's hard to be certain the libraries that are present on the login node are also present on the compute nodes. So, we're going to have to manually edit a template Makefile and tell the compiler which libraries we want to use.
+
+## Telling the compiler how you want it done
 
 # Step 5 - Create your HPL.dat
 This repo includes a template. I've put X's where we will recommend how you set these in this section. These parameters will have the greatest effect on your run. You are welcome and encouraged to play with the other ones, where you may be able to squeeze out some extra flops. [This](https://www.netlib.org/benchmark/hpl/tuning.html) will tell you what each does and how . When you submit the job using sbatch, make sure your HPL.dat is in the same directory, or set the directory in your SLURM batch script.
