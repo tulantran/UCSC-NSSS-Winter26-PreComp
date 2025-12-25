@@ -48,35 +48,12 @@ Jetstream2 instances come with many pre-optimized libraries for their machines. 
 The `module` command is a feature built into linux and available modules can be set up by admin to have an easy way to set up your environment. It automates setting environment variables and compilers for you. If you're curious about what exactly loading a certain module will do you can hit a:`module show <moduleName>` and it will print essentially the script it runs.
 
 Modules can be explored through these common commands:
-
-```
-module avail
-```
-gives a list of modules available to load
-
-```
-module spider <SearchWord>
-```
-searches available modules related to your SearchWord, and tells you commands to load it. (since it may have dependency modules you need to load first)
-
-```
-module load <ModuleName>
-```
-loads ModuleName into your environment, updates environment variables
-
-```
-module unload <ModuleName>
-```
-unloads ModuleName from your environment, updates environment variables
-```
-module purge <ModuleName>
-```
-this will clear all modules from your current environment
-
-```
-module list
-```
-shows modules you currently have loaded
+- `module avail` gives a list of modules available to load
+- `module spider <SearchWord>`searches available modules related to your SearchWord, and tells you commands to load it. (since it may have dependency modules you need to load first)
+- `module load <ModuleName>` loads ModuleName into your environment, updates environment variables
+- `module unload <ModuleName>`unloads ModuleName from your environment, updates environment variables
+- `module purge <ModuleName>`this will clear all modules from your current environment
+- `module list` shows modules you currently have loaded
 
 
 # Step 4 - Configure and make*
