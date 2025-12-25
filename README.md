@@ -45,12 +45,12 @@ to download it directly to the machine. Once you have the source code, use the `
 # Step 3 - Dependencies*
 2 main important things that High Performance Linpack needs to do solve Ax=b really fast:
 
-- optimized Basic Linear Algebra Subroutines(BLAS)
+- optimized Basic Linear Algebra Subroutines (BLAS)
 - optimized Message Passing Interface (MPI)
 
-These libraries may or may not have other dependencies you need to build depending on how you choose them. The following are some options:
+These libraries may or may not have other dependencies you need to build depending on how you choose them. Here is how you get them:
 
-## Jetstream2 modules
+### Jetstream2 modules
 
 Jetstream2 instances come with many pre-optimized libraries for their machines. I believe these are uniform on all of thier instances even if they are different hardware so not all of the ones available are the best option for our purpose. If you end up using these, look into what they are first. MPI you can for sure find in here and theres a lot of options for it. I don't know all that much about these implementations though. 
 
@@ -65,16 +65,16 @@ Modules can be explored through these common commands:
 - `module list` shows modules you currently have loaded
 There are a few others that can use their description to help you but Jetstream2 doesn't provide any descriptions so I will not be showing those here. They may be useful on Hummingbird if you ever play with it.
 
-## Build from source
+### Build from source
 This is a bit more complicated but gets to the root of what we spend most of our time doing. For MPI you can choose any you want that you think will be good for our set up. 
 
-#### Common MPI libraries:
+##### Common MPI libraries:
 - OpenMPI
 - Intel MPI
 - MPICH
 - HPC-X
   
-#### Common BLAS Libraries:
+##### Common BLAS Libraries:
 - OpenBLAS
 - Intel MKL
 - AOCL
