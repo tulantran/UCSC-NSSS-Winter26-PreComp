@@ -52,7 +52,7 @@ These libraries may or may not have other dependencies you need to build dependi
 
 ## Jetstream2 modules
 
-Jetstream2 instances come with many pre-optimized libraries for their machines. I believe these are uniform on all of thier instances even if they are different chips so not all of the ones available are the best option for our purpose. If you end up using these, look into what they are first. MPI is the only easy one to find in here and theres a lot of those to choose from.
+Jetstream2 instances come with many pre-optimized libraries for their machines. I believe these are uniform on all of thier instances even if they are different hardware so not all of the ones available are the best option for our purpose. If you end up using these, look into what they are first. MPI you can for sure find in here and theres a lot of options for it. I don't know all that much about these implementations though. 
 
 The `module` command is a feature built into linux and available modules can be set up by admin to have an easy way to set up your environment. It automates setting environment variables and compilers for you. If you're curious about what exactly loading a certain module will do you can hit a:`module show <moduleName>` and it will print essentially the script it runs.
 
@@ -66,7 +66,13 @@ Modules can be explored through these common commands:
 There are a few others that can use their description to help you but Jetstream2 doesn't provide any descriptions so I will not be showing those here. They may be useful on Hummingbird if you ever play with it.
 
 ## Build from source
+This is a bit more complicated but gets to the root of what we spend most of our time doing. For MPI you can choose any you want that you think will be good for our set up. 
 
+#### Common MPI libraries:
+- OpenMPI
+- Intel MPI
+- MPICH
+#### 
 
 # Step 4 - Configure and make*
 Once you've figured out your dependencies, you need to compile HPL itself. But first, we need to talk about how these dependencies are managed.
