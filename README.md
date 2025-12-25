@@ -50,6 +50,8 @@ use the password you submitted to us in the google form.
 
 You should see a few things: Jetstream2 updates, announcements, how many users (your teammates!) are logged in to this instance. 
 
+Want to know what kind of machine your using? How the virtualization is set up for you? `lscpu` what info does it tell you?
+
 Your first SLURM command!: `sinfo` what do you see? 
 
 Your second: `squeue` is anyone running anything right now? Note: on larger systems, specify a user who's current jobs you want to view.
