@@ -4,7 +4,7 @@ HPL.out      output file name (if any) !!! this may be overridden by your batch 
 6            device out (6=stdout, 7=file)
 1            # of problems (N)
 X            Ns
-X            # of NBs
+1            # of NBs
 X            NBs
 0            PMAP process mapping (0=Row-,1=Column-major)
 1            # of process grids (P x Q)
