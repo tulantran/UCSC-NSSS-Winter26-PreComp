@@ -69,7 +69,16 @@ There are a few others that can use their description to help you but Jetstream2
 # Step 4 - Configure and make*
 
 # Step 5 - Create your HPL.dat
-This repo includes a template. I've put X's where we will recommend how you set these in this section. These parameters will have the greatest effect on your run. You are welcome and encouraged to play with the other ones, where you may be able to squeeze out some extra flops. [This](https://www.netlib.org/benchmark/hpl/tuning.html) will walk you through how to set each parameter. When you submit the job using sbatch, make sure your HPL.dat is in the same directory, or set the directory in your SLURM batch script.
+This repo includes a template. I've put X's where we will recommend how you set these in this section. These parameters will have the greatest effect on your run. You are welcome and encouraged to play with the other ones, where you may be able to squeeze out some extra flops. [This](https://www.netlib.org/benchmark/hpl/tuning.html) will tell you what each does and how . When you submit the job using sbatch, make sure your HPL.dat is in the same directory, or set the directory in your SLURM batch script.
+
+### Ns
+This will be the dimension of your square matrix $A$ in $Ax=b$. We want to pretty much max out the size based on how much memory we have. Given that a double precision float is 8 bytes, to get the max dimension of our matrix we divide how many bytes we have by 8 and then take the square root. 
+
+N = (ram in bytes)/
+
+
+
+
 
 
 # Step 6 - Create your SLURM batch script
