@@ -1,6 +1,9 @@
 # Winter Classic PreCompetition
 This repo is a guide to complete a mini-competition to run and optimize HPL on a Jetstream2 cloud cluster we created, Slugalicious. Your score will be based on your GFLOPs achievement. You can clone this to get the 2 template files included if you want.
 
+
+I AM SO SAD. IF YOU WANT TO SEE WHAT THIS MESS IS SUPPOSED TO LOOK LIKE CLICK Raw ^
+
 ┌────────────────────────────────────────────────────────────────────────────┐
 │                          ┌──────────────────────┐ ┌──────────────────────┐ │       This is our mini cluster!  
 │     SLUGALICIOUS         │  slimey              │ │  gooey               │ │       Slimey and gooey are the names of our 2 partitions. 
