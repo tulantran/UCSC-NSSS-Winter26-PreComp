@@ -63,10 +63,11 @@ Modules can be explored through these common commands:
 - `module unload <ModuleName>`unloads ModuleName from your environment, updates environment variables
 - `module purge <ModuleName>`this will clear all modules from your current environment
 - `module list` shows modules you currently have loaded
-There are a few others that can use their description to help you but Jetstream2 doesn't provide any descriptions so I will not be showing those here. They may be useful on Hummingbird if you ever play with it.
+
+There are a few other commands that can use modules' description to help you but Jetstream2 doesn't provide any descriptions so I will not be showing those here. Those may be useful on Hummingbird if you ever play with it.
 
 ### Build from source
-This is a bit more complicated but gets to the root of what we spend most of our time doing. For MPI you can choose any you want that you think will be good for our set up. 
+This is a bit more complicated then just loading modules but gets to the root of what we spend most of our time doing. For MPI you can choose any you want that you think will be good for our set up. 
 
 ##### Common MPI libraries:
 - OpenMPI
