@@ -128,18 +128,18 @@ Now you need to tell the Makefile where to find your compiler. For this project,
 ```
 CC       = 
 ```
-and set it to be the path to your `mpicc` compiler. Then, mess with `CCFLAGS`. Right now, it has a few already. But there are more you should put. Think about optimization flags with the `-O1` syntax, which is the highest one you can use? On top of that, use `-march=` and `-mtune=` flags. This tells the compiler to optimize for a specific chip. These systems use AMD Epyc Milan 7713 chips, which correspond to `znver3`.
+and set it to be the path to your `mpicc` compiler. Then, mess with `CCFLAGS`. Right now, it has a few already. But there are more you should put. Think about optimization flags with the `-O1` syntax, which is the highest one you can use? On top of that, use `-march=` and `-mtune=` flags. This tells the compiler to optimize for a specific chip. These systems use AMD Epyc Milan 7713 chips, which use Zen 3 microarchitecture (`znver3`).
 
 ## Compiling!
-Now that you have written your Makefile, it's smooth sailing from here. Use `make -arch=Slugalicious -j 32` to compile for the Slugalicious architecture (the Makefile you were just editing) and with 32 jobs in parallel (the login node has 32 cores, best to take advantage of that). If all goes well, there should be no errors thrown, and the executable should be placed in `bin/Slugalicious`!
+Now that you have written your Makefile, it's smooth sailing from here. Use `make -arch=Slugalicious -j 32` to compile for the Slugalicious architecture (specifies the Makefile you were just editing) and with 32 jobs in parallel (the login node has 32 cores, best to take advantage of that). If all goes well, there should be no errors thrown, and the executable should be placed in `bin/Slugalicious`!
 
 
 # Step 5 - Create your HPL.dat
-This repo includes a template. I've put X's where we will recommend how you set these in this section. These parameters will have the greatest effect on your run. You are welcome and encouraged to play with the other ones, where you may be able to squeeze out some extra flops. [This](https://www.netlib.org/benchmark/hpl/tuning.html) will tell you what each does and how . When you submit the job using sbatch, make sure your HPL.dat is in the same directory, or set the directory in your SLURM batch script.
+This repo includes a template. I've put X's where we will recommend how you set these in this section. These parameters will have the greatest effect on your run. You are welcome and encouraged to play with the other ones, where you may be able to squeeze out some extra flops. [This](https://www.netlib.org/benchmark/hpl/tuning.html) will tell you what each does and how . When you submit the job using sbatch, make sure your HPL.dat is in the same directory, or specify the directory in your SLURM batch script.
 
 ### Ns
 
-This will be the dimension of your square matrix $A$ in $Ax=b$. We want to pretty much max out the size based on how much memory we have. Given that a double precision float is 8 bytes, to get the max dimension of our matrix we divide how many bytes we have by 8 and then take the square root. 
+This will be the dimension of your square matrix $A$ in $Ax=b$. We want to pretty much max out the size based on how much memory we have. Given that a double precision float is 8 bytes, to get the max dimension of our matrix we divide how many bytes we have by 8 and then take the square root. Hint: Each node has 60GB RAM
 
 N = sqrt((RAM in bytes)/(8 bytes))
 
