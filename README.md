@@ -72,7 +72,15 @@ This is a bit more complicated but gets to the root of what we spend most of our
 - OpenMPI
 - Intel MPI
 - MPICH
-#### 
+- HPC-X
+  
+#### Common BLAS Libraries:
+- OpenBLAS
+- Intel MKL
+- AOCL
+- BLIS
+
+"Open" things obviously work on anything. Good ol' reliable. Could be cool to try configuring some other stuff too though. Do some research. How are you picking your libraries? 
 
 # Step 4 - Configure and make*
 Once you've figured out your dependencies, you need to compile HPL itself. But first, we need to talk about how these dependencies are managed.
