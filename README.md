@@ -77,7 +77,7 @@ This will be the dimension of your square matrix $A$ in $Ax=b$. We want to prett
 
 N = sqrt((RAM in bytes)/(8 bytes))
 
-BUT this N alone would take up our entire RAM and we need some of that for other stuff like the OS. So scale it down a bit but not too much. %85 is a generous start. Push it until it tanks your performance. It can help to have this be a multiple of your NB. Where did it start to tank?
+BUT this N alone would take up our entire RAM and we need some of that for other stuff like the OS. So scale it down a bit but not too much. %85 of that is a conservative start. Push it until it tanks your performance. It can help to have this be a multiple of your NB. Where did it start to tank?
 
 ### NB
 
