@@ -29,9 +29,9 @@ We will compare the output file to your provided result hpl.out. All steps below
 Connect to Slugalicious. Use
 
 ```
-ssh <yourfirstname (+1st last initial if andrew)>@149.165.172.82
+ssh <yourfirstname(+last initial if andrew)>@149.165.172.82
 ```
-and enter <<the pw you entered in googleform>>
+use the password you submitted to us in the google form.
 
 
 # Step 2 - HPL*
