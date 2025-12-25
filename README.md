@@ -98,7 +98,7 @@ Modules can be explored through these common commands:
 There are a few other commands that can use modules' description to help you but Jetstream2 doesn't provide any descriptions so I will not be showing those here. Those may be useful on Hummingbird if you ever play with it.
 
 ### Build from source
-This is a bit more complicated then just loading modules but gets to the root of what we spend most of our time doing. For MPI you can choose any you want that you think will be good for our set up. 
+This is a bit more complicated then just loading modules but gets to the root of what we spend most of our time doing in HPC. You can choose from any available libraries for these dependencies. 
 
 ##### Common MPI libraries:
 - OpenMPI
@@ -112,7 +112,9 @@ This is a bit more complicated then just loading modules but gets to the root of
 - AOCL
 - BLIS
 
-"Open" things obviously work on anything. Good ol' reliable. Could be cool to try configuring some other stuff too though. Do some research. How are you picking your libraries? 
+"Open" things obviously work on anything. Good ol' reliable. Could be cool to try configuring some other stuff too though. Do some research. How are you picking your libraries? Things to consider AMD 7713, ethernet, 32 cores total, 2 nodes, maybe virtual cluster?
+
+You will need to wget and untar or clone a directory to get these libraries. Explore whats in them first. Try not get overwhelmed. 
 
 # Step 4 - Configure and make*
 Once you've figured out your dependencies, you need to compile HPL itself. But first, we need to talk about how these dependencies are managed.
