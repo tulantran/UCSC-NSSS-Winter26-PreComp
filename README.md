@@ -7,7 +7,7 @@ You will need to complete a 2-node HPL run on Slugalicious26, on any of the part
 You MUST submit the following files:
 - either:
   - hplscript.sh - a bash script that we can use to validate your run (good documentation practice)
-  - hplreport.txt - description of what you did, what you tried along the way (still include some commands). 
+  - hplreport.txt - description of what you did, what you tried along the way (still include some commands) and answer questions in this README 
 - HPL.dat - your parameter tunings for your final run
 - hpl.cmd - the slurm batch script to submit your job
 - hpl.out - your HPL result 
@@ -72,19 +72,23 @@ There are a few others that can use their description to help you but Jetstream2
 This repo includes a template. I've put X's where we will recommend how you set these in this section. These parameters will have the greatest effect on your run. You are welcome and encouraged to play with the other ones, where you may be able to squeeze out some extra flops. [This](https://www.netlib.org/benchmark/hpl/tuning.html) will tell you what each does and how . When you submit the job using sbatch, make sure your HPL.dat is in the same directory, or set the directory in your SLURM batch script.
 
 ### Ns
+
 This will be the dimension of your square matrix $A$ in $Ax=b$. We want to pretty much max out the size based on how much memory we have. Given that a double precision float is 8 bytes, to get the max dimension of our matrix we divide how many bytes we have by 8 and then take the square root. 
 
-```math
-$$N = \sqrt{r/8}$$
-```
-where $r$= RAM in bytes sqrt(x)
+N = sqrt((RAM in bytes)/(8 bytes))
 
+BUT this N alone would take up our entire RAM and we need some of that for other stuff like the OS. So scale it down a bit but not too much. %85 is a generous start. Push it until it tanks your performance. It can help to have this be a multiple of your NB. Where did it start to tank?
 
+### NB
 
+Your block size. Your matrix will get partitioned into smaller squares NB X NB. Keep to multiples of 64. Smaller if compute-bound. Larger if communication-bound. Look into why if you feel. Start in 192-384 range. What worked the best? Why?
 
+### P and Q
 
+Your P x Q should multiply to your NB. It determines how your matrix is chopped up. Your Q should be less than than P. In a perfect set up, the most square P and Q would perform best. Experiment with slightly rectangular ones. Why might those work better in some cases? Why Q less than P?
 
 # Step 6 - Create your SLURM batch script
+
 This repo includes a template.
 
 # Step 7 - Submit your Job* 
