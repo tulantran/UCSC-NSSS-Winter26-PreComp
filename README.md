@@ -23,9 +23,9 @@ You MUST submit the following files:
 - either:
   - hplscript.sh - a bash script that we can use to validate your run (good documentation practice)
   - hplreport.txt - description/reflection of what you did and what you tried along the way (still include some commands). Give brief answers to questions in this README.
-- HPL.dat - your parameter tunings for your final run
-- hpl.cmd - the slurm batch script to submit your job
-- hpl.out - your HPL result 
+- HPL.dat - your parameter tunings for your final run. template provided.
+- hpl.cmd - the slurm batch script to submit your job. template provided.
+- hpl.out - your HPL result output file. 
 
 Please zip these 4 files and call it FirstnameLastname.tar. 
 If you give us a script, to validate your run, we will create a new directory with only your HPL.dat, hpl.cmd and script.cmd and run it using 
