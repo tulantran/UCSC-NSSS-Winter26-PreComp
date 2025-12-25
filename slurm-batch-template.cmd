@@ -9,6 +9,7 @@
 #SBATCH --cpus-per-task=< # cpu cores per tasks>
 #SBATCH --mem=< total ram in GB >G
 #SBATCH -t <maximum time in hh:mm:ss>
+#SBATCH --chdir=/example/path # use to set where the working directory is when the job is ran.
 
 module load <module name> #if any; delete if you built all from source
 
