@@ -1,6 +1,18 @@
 # Winter Classic PreCompetition
 This repo is a guide to complete a mini-competition to run and optimize HPL on a Jetstream2 cloud cluster we created, Slugalicious. Your score will be based on your GFLOPs achievement. You can clone this to get the 2 template files included if you want.
 
+┌────────────────────────────────────────────────────────────────────────────┐
+│                          ┌──────────────────────┐ ┌──────────────────────┐ │       This is our mini cluster!  
+│     SLUGALICIOUS         │  slimey              │ │  gooey               │ │       Slimey and gooey are the names of our 2 partitions. 
+│   ┌──────────────┐       │ ┌────────────────┐   │ │ ┌────────────────┐   │ │       The login node has 32 cores.
+│   │              │       │ │ compute-1-of-4 │   │ │ │ compute-3-of-4 │   │ │       Each compute node has 16 cores.
+│   │  login node  │       │ └────────────────┘   │ │ └────────────────┘   │ │       All virtualized on AMD 7713 Milan chips. 
+│   │              │       │ ┌────────────────┐   │ │ ┌────────────────┐   │ │
+│   └──────────────┘       │ │ compute-2-of-4 │   │ │ │ compute-4-of-4 │   │ │
+│                          │ └────────────────┘   │ │ └────────────────┘   │ │
+│                          └──────────────────────┘ └──────────────────────┘ │
+└────────────────────────────────────────────────────────────────────────────┘
+
 # Task Overview
 You will need to complete a 2-node HPL run on Slugalicious26, on either the partitions (they're identical). Try to tune this to achieve as many floating-point operations per second (FLOPS) as you can. They are all on Ubuntu Linux, using SLURM for job scheduling and connected with ethernet. Each partition consists of 2 nodes each. Since these are virtual, each node only has 16 cores but are running on an AMD Milan 7713. Your only restriction is you may not use Spack to build it. Note that you also don't have sudo permissions so you will have to build everything from source or we will have a few unoptimized installations for you if you want a cop-out.
 
@@ -140,7 +152,7 @@ Your P x Q should multiply to your NB. It determines how your matrix is chopped 
 
 # Step 6 - Create your SLURM batch script
 
-This repo includes a template.
+This repo includes a template. 
 
 # Step 7 - Submit your Job* 
 ```
