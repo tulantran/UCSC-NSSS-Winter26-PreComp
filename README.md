@@ -65,6 +65,8 @@ Modules can be explored through these common commands:
 - `module list` shows modules you currently have loaded
 There are a few others that can use their description to help you but Jetstream2 doesn't provide any descriptions so I will not be showing those here. They may be useful on Hummingbird if you ever play with it.
 
+## Build from source
+
 
 # Step 4 - Configure and make*
 Once you've figured out your dependencies, you need to compile HPL itself. But first, we need to talk about how these dependencies are managed.
@@ -74,22 +76,22 @@ HPL depends on BLAS and MPI. You could try compiling HPL by running the `configu
 
 ## Telling the compiler how you want it done
 Copy the template Makefile `Make.Slugalicious` to inside of the `hpl-2.3` directory. 
-### OpenMPI
-You first need to tell it where OpenMPI lives, so go find the MPI section. It should look something like
+### MPI
+You first need to tell it where your MPI lives, so go find the MPI section. It should look something like
 ```
 MPdir        =
 MPinc        =
 MPlib        =
 ```
-When you used `make install` after compiling OpenMPI, it should have installed OpenMPI to the directory you gave it. Set `MPdir` to that directory. Now, the next flag, `MPinc`, is asking for the "include" directory, where all of the header files necessary for compilation live. There should be a folder called `include` inside of the `MPdir` directory that has exactly that. So, set `MPinc` to that, `$(MPdir)/include`. Then, you need to tell the compiler where the library object files are, which is what actually gets executed during runtime, versus the include files necessary for compilation. That lives in the same `MPdir` folder within a `lib` folder, and inside that folder, there should be a file called `libmpi.a`. If not, look inside that folder with `ls` and see what's there and what's missing!
-### OpenBLAS
-Now you need to tell the compiler where the OpenBLAS comes from. Thankfully, it's pretty similar. Look for the LA variables, they should look like this:
+When you used `make install` after compiling your MPI, it should have installed your MPI library to the directory you gave it. Set `MPdir` to that directory. Now, the next flag, `MPinc`, is asking for the "include" directory, where all of the header files necessary for compilation live. There should be a folder called `include` inside of the `MPdir` directory that has exactly that. So, set `MPinc` to that, `$(MPdir)/include`. Then, you need to tell the compiler where the library object files are, which is what actually gets executed during runtime, versus the include files necessary for compilation. That lives in the same `MPdir` folder within a `lib` folder, and inside that folder, there should be a file called `libmpi.a`. If not, look inside that folder with `ls` and see what's there and what's missing!
+### BLAS
+Now you need to tell the compiler where your BLAS comes from. Thankfully, it's pretty similar. Look for the LA variables, they should look like this:
 ```
 LAdir        =
 LAinc        =
 LAlib        =
 ```
-If you're using the BLAS library from the installed `libopenblas-dev` package, you can just leave LAdir and LAinc blank and fill in LAlib with `\usr\include\x86_64-linux-gnu\libopenblas.a`. This is the direct path to the openblas library. If you compiled OpenBLAS yourself however, you fill out the three basically the same way as you did with OpenMPI. `LAdir` points to the main directory, `LAinc` points to the `include` directory within `LAdir`, and then `LAlib` is the `libopenblas.a` file within the `lib` directory.
+If you're using the BLAS library from the installed `libopenblas-dev` package, you can just leave LAdir and LAinc blank and fill in LAlib with `\usr\include\x86_64-linux-gnu\libopenblas.a`. This is the direct path to the openblas library. If you compiled BLAS yourself however, you fill out the three basically the same way as you did with MPI. `LAdir` points to the main directory, `LAinc` points to the `include` directory within `LAdir`, and then `LAlib` is the `libopenblas.a` file within the `lib` directory.
 
 ### Compiler & Compiler Flags
 Now you need to tell the Makefile where to find your compiler. For this project, you're going to use the `mpicc` compiler from OpenMPI. That should be in the `bin` folder within the main OpenMPI folder, wherever you decided to store that after running `make install`. Find
