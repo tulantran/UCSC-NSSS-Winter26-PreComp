@@ -1,15 +1,15 @@
 HPLinpack benchmark input file
 Innovative Computing Laboratory, University of Tennessee
-HPL.out      output file name (if any)
+HPL.out      output file name (if any) !!! this may be overridden by your batch script output file name
 6            device out (6=stdout, 7=file)
 1            # of problems (N)
-29952        Ns
-1            # of NBs
-256          NBs
+X            Ns
+X            # of NBs
+X            NBs
 0            PMAP process mapping (0=Row-,1=Column-major)
 1            # of process grids (P x Q)
-2            Ps
-2            Qs
+X            Ps
+X            Qs
 16.0         threshold
 1            # of panel fact
 2            PFACTs (0=left, 1=Crout, 2=Right)
