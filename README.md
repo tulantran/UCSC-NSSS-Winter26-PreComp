@@ -173,7 +173,9 @@ Your P x Q should multiply to your NB. It determines how your matrix is chopped 
 
 # Step 6 - Create your SLURM batch script
 
-This repo includes a template. Look at it now. It's pretty easy to follow. A decent run is well under an hour, maybe give yourself 2. Make sure to set a time limit to prevent jobs from hanging. The one nuanced concept here is what a "task" is. 
+This repo includes a template. Look at it now. It's pretty easy to follow. A decent run is well under an hour, maybe give yourself 2. Make sure to set a time limit to prevent jobs from hanging. 
+
+The one nuanced concept here is what a "task" is. This is an MPI thing. When you have MPI in your code, and you specify for example 4 tasks a.k.a MPI Ranks, your program will run 4 times BUT each process will respond differently and do different parts of the code based on its MPI Rank or ID. These processes will communicate with eachother via MPI which is slower than lower level communications obviously. Historically, programs were written with a one rank per core assumption. Now that's actually likely to be a bit inefficient on modern machines. You want a few threads per rank. Look into what the best configuration is, experiment. 
 
 # Step 7 - Submit your Job* 
 ```
