@@ -1,5 +1,5 @@
 # Winter Classic PreCompetition
-This repo is a guide to complete a mini-competition to run and optimize HPL on a Jetstream2 cloud cluster we created, Slugalicious. Your score will be based on your GFLOPs achievement. You can clone this to get the template files included if you want but they're easily copypaste-able.
+This repo is a guide to complete a mini-competition to run and optimize HPL on a Jetstream2 cloud cluster we created, Slugalicious. Your score will be based on your GFLOPs achievement. You can clone this to get the template files included if you want but they're easily copypaste-able. Start early! Only 2 of you can have a job running at a time so you might get stuck in line if you all procrastinate. We will be killing all queued or runnin jobs Jan 2nd at noon.
 
 
 I AM SO SAD. IF YOU WANT TO SEE WHAT THIS MESS IS SUPPOSED TO LOOK LIKE CLICK Raw ^
@@ -173,7 +173,7 @@ Your P x Q should multiply to your NB. It determines how your matrix is chopped 
 
 # Step 6 - Create your SLURM batch script
 
-This repo includes a template. It's pretty easy to follow. A decent run is well under an hour, maybe give yourself 2. Make sure to set a time limit to prevent jobs from hanging. 
+This repo includes a template. Look at it now. It's pretty easy to follow. A decent run is well under an hour, maybe give yourself 2. Make sure to set a time limit to prevent jobs from hanging. The one nuanced concept here is what a "task" is. 
 
 # Step 7 - Submit your Job* 
 ```
