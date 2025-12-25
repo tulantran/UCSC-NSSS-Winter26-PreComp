@@ -4,7 +4,7 @@
 #SBATCH -e <error output filename, put this in your shared folder>
 #SBATCH -o <std output filename, put this in your shared folder>
 #SBATCH -N <number of nodes (2)> 
-#SBATCH --ntasks=< # total tasks (recommended 1 per total cores)>
+#SBATCH --ntasks=< # total tasks >
 #SBATCH --ntasks-per-node=< # tasks per node>
 #SBATCH --cpus-per-task= < # cpu cores per tasks>
 #SBATCH -t <maximum time in hh:mm:ss>
