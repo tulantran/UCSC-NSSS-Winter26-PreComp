@@ -83,7 +83,7 @@ These libraries may or may not have other dependencies you need to build dependi
 
 ### Jetstream2 modules
 
-Jetstream2 instances come with many pre-optimized libraries for their machines. I believe these are uniform on all of thier instances even if they are different hardware so not all of the ones available are the best option for our purpose. If you end up using these, research what they are first. You can for sure find MPI stuff in here and theres a lot of options for it. I don't know all that much about these implementations though. 
+Jetstream2 instances come with many pre-optimized libraries for their machines. I believe these are uniform on all of thier instances even if they are different hardware so not all of the ones available are the best option for our purpose. If you end up using these, research what they are first. 
 
 The `module` command is a feature built into linux and available modules can be set up by admin to have an easy way to set up your environment. It automates setting environment variables and compilers for you. If you're curious about what exactly loading a certain module will do you can hit a:`module show <moduleName>` and it will print essentially the script it runs.
 
