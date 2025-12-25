@@ -1,5 +1,5 @@
 # Winter Classic PreCompetition
-This repo is a guide to complete a mini-competition to run and optimize HPL on a Jetstream2 cloud cluster we created, Slugalicious. Your score will be based on your GFLOPs achievement. You can clone this to get the template files included if you want but they're easily copypaste-able. Start early! Only 2 of you can have a job running at a time so you might get stuck in line if you all procrastinate. We will be killing all queued or runnin jobs Jan 2nd at noon. Post questions in the Discord :p, we might to office hours/check in with you guys. It's our first time running a comp.
+This repo is a guide to complete a mini-competition to run and optimize HPL on a Jetstream2 cloud cluster we created, Slugalicious. Your score will be based on your GFLOPs achievement. You can clone this to get the template files included if you want but they're easily copypaste-able. Start early! Only 2 of you can have a job running at a time so you might get stuck in line if you all procrastinate. We will be killing all queued or running jobs Jan 2nd at noon. Post questions in the Discord :p, we might to office hours/check in with you guys. 
 
 
 I AM SO SAD. IF YOU WANT TO SEE WHAT THIS MESS IS SUPPOSED TO LOOK LIKE CLICK Raw ^
@@ -17,7 +17,7 @@ I AM SO SAD. IF YOU WANT TO SEE WHAT THIS MESS IS SUPPOSED TO LOOK LIKE CLICK Ra
 └────────────────────────────────────────────────────────────────────────────┘
 
 # Task Overview
-You will need to complete a 2-node HPL run on Slugalicious26, on either the partitions (they're identical). Try to tune this to achieve as many floating-point operations per second (FLOPS) as you can. They are all on Ubuntu Linux, using SLURM for job scheduling and connected with ethernet. Each partition consists of 2 nodes each. Since these are virtual, each node only has 16 cores but are running on an AMD Milan 7713. Your only restriction is you may not use Spack to build it. Note that you also don't have sudo permissions so you will pretty much have to build everything from source. Research as you go. The internet is awesome.
+You will need to complete a 2-node HPL run on Slugalicious, on either the partitions (they're identical). Try to tune this to achieve as many floating-point operations per second (FLOPS) as you can. They are all on Ubuntu Linux, using SLURM for job scheduling and connected with ethernet. Each partition consists of 2 nodes each. Since these are virtual, each node only has 16 cores but are running on an AMD Milan 7713. Your only restriction is you may not use Spack to build it. Note that you also don't have sudo permissions so you will pretty much have to build everything from source. Research as you go. The internet is awesome.
 
 You MUST submit the following files:
 - either:
@@ -36,7 +36,7 @@ from that same directory. Please make sure that your paths are set accordingly. 
 ```
 sbatch hpl.cmd 
 ```
-We will compare the output file to your provided result hpl.out. All steps below with a * must be included in your bash script. For our convenience, please have the outputted hpl result be named validateHPL.out. If there are issues with this message @ttttt on discord. 
+We will compare the output file to your provided result hpl.out. All steps below with a * must be included in your bash script. For our convenience, please have the outputted hpl result be named validateHPL.out. If there are issues with logging in message @ttttt on discord. 
 
 
 # Step 1 - ssh onto Slugalicious. Try some commands.
@@ -74,7 +74,7 @@ wget "https://www.netlib.org/benchmark/hpl/hpl-2.3.tar.gz"
 to download it directly to the machine. Once you have the source code, use the `tar` command to untar the the downloaded file. You should end up with a directory called `hpl-2.3`. You then need to get its dependencies.
 
 # Step 3 - Dependencies*
-2 main important things that High Performance Linpack needs to do solve Ax=b really fast:
+2 main things that High Performance Linpack needs to do solve Ax=b really fast:
 
 - optimized Basic Linear Algebra Subroutines (BLAS)
 - optimized Message Passing Interface (MPI)
@@ -83,7 +83,7 @@ These libraries may or may not have other dependencies you need to build dependi
 
 ### Jetstream2 modules
 
-Jetstream2 instances come with many pre-optimized libraries for their machines. I believe these are uniform on all of thier instances even if they are different hardware so not all of the ones available are the best option for our purpose. If you end up using these, look into what they are first. MPI you can for sure find in here and theres a lot of options for it. I don't know all that much about these implementations though. 
+Jetstream2 instances come with many pre-optimized libraries for their machines. I believe these are uniform on all of thier instances even if they are different hardware so not all of the ones available are the best option for our purpose. If you end up using these, research what they are first. You can for sure find MPI stuff in here and theres a lot of options for it. I don't know all that much about these implementations though. 
 
 The `module` command is a feature built into linux and available modules can be set up by admin to have an easy way to set up your environment. It automates setting environment variables and compilers for you. If you're curious about what exactly loading a certain module will do you can hit a:`module show <moduleName>` and it will print essentially the script it runs.
 
