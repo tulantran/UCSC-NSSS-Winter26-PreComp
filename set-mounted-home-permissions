@@ -17,7 +17,7 @@ for user_dir in /home/*; do
         sudo mkdir -p "$BASE_DIR/$username"
 
         #make them owner
-        sudo chown "$username:$username" "$BASE_DIR/$username"
+        sudo chown -R "$username:$username" "$BASE_DIR/$username"
 
         
         #only they can see it
