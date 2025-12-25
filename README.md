@@ -39,7 +39,7 @@ sbatch hpl.cmd
 We will compare the output file to your provided result hpl.out. All steps below with a * must be included in your bash script. For our convenience, please have the outputted hpl result be named validateHPL.out. If there are issues with this message @ttttt on discord. 
 
 
-# Step 1 - ssh onto Slugalicious
+# Step 1 - ssh onto Slugalicious. Try some commands.
 
 Connect to Slugalicious. Use
 
@@ -48,6 +48,10 @@ ssh <yourfirstname(+last initial if andrew)>@149.165.172.82
 ```
 use the password you submitted to us in the google form.
 
+You should see a few things: Jetstream2 updates, announcements, how many users (your teammates!) are logged in to this instance. 
+
+Your first SLURM command!: `sinfo` what do you see? 
+Your second: `squeue` is anyone running anything right now?
 
 # Step 2 - HPL*
 
