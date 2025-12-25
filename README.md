@@ -59,7 +59,7 @@ There are a few others that can use their description to help you but Jetstream2
 # Step 4 - Configure and make*
 
 # Step 5 - Create your HPL.dat
-This repo includes a template. [This](https://www.netlib.org/benchmark/hpl/tuning.html) will walk you through how to set each parameter.
+This repo includes a template. [This](https://www.netlib.org/benchmark/hpl/tuning.html) will walk you through how to set each parameter. When you submit the job using sbatch, make sure your HPL.dat is in the same directory.
 # Step 6 - Create your SLURM batch script
 This repo includes a template.
 
