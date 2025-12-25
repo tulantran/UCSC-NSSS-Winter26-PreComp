@@ -44,6 +44,40 @@ to download it directly to the machine. Once you have the source code, use the `
 
 # Step 3 - Dependencies*
 
+Jetstream2 instances come with many pre-optimized libraries for their machines. I believe these are uniform on all of thier instances even if they are different chips so not all of the ones available are the best option for our purpose. If you end up using these, look into what they are first. 
+
+Modules can be explored through these common commands:
+
+```
+module avail
+```
+gives a list of modules available to load
+
+```
+module spider <SearchWord>
+```
+searches available modules related to your SearchWord, and tells you commands to load it. (since it may have dependency modules you need to load first)
+
+```
+module load <ModuleName>
+```
+loads ModuleName into your environment, updates environment variables
+
+```
+module unload <ModuleName>
+```
+unloads ModuleName from your environment, updates environment variables
+```
+module purge <ModuleName>
+```
+this will clear all modules from your current environment
+
+```
+module list
+```
+shows modules you currently have loaded
+
+
 # Step 4 - Configure and make*
 
 # Step 5 - Create your HPL.dat
