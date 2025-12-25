@@ -76,7 +76,7 @@ This will be the dimension of your square matrix $A$ in $Ax=b$. We want to prett
 
 $$N = \sqrt{r/8}$$
 
-where $r$= RAM in bytes
+where $r$= RAM in bytes sqrt(x)
 
 
 
