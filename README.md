@@ -43,6 +43,10 @@ wget "https://www.netlib.org/benchmark/hpl/hpl-2.3.tar.gz"
 to download it directly to the machine. Once you have the source code, use the `tar` command to untar the the downloaded file. You should end up with a directory called `hpl-2.3`. You then need to get its dependencies.
 
 # Step 3 - Dependencies*
+2 important things that High Performance Linpack needs to do solve Ax=b really fast:
+
+- optimized Basic Linear Algebra Subroutines(BLAS)
+- optimized Message Passing Interface (MPI)
 
 Jetstream2 instances come with many pre-optimized libraries for their machines. I believe these are uniform on all of thier instances even if they are different chips so not all of the ones available are the best option for our purpose. If you end up using these, look into what they are first. 
 The `module` command is a feature built into linux and available modules can be set up by admin to have an easy way to set up your environment. It automates setting environment variables and compilers for you. If you're curious about what exactly loading a certain module will do you can hit a:`module show <moduleName>` and it will print essentially the script it runs.
@@ -54,7 +58,8 @@ Modules can be explored through these common commands:
 - `module unload <ModuleName>`unloads ModuleName from your environment, updates environment variables
 - `module purge <ModuleName>`this will clear all modules from your current environment
 - `module list` shows modules you currently have loaded
-There are a few others that can use their description to help you but Jetstream2 doesn't provide any descriptions so I will not be showing those here. They may be useful on Hummingbird if you ever play with it. 
+There are a few others that can use their description to help you but Jetstream2 doesn't provide any descriptions so I will not be showing those here. They may be useful on Hummingbird if you ever play with it.
+
 
 # Step 4 - Configure and make*
 
