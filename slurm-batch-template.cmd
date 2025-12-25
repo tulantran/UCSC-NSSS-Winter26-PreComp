@@ -10,6 +10,8 @@
 #SBATCH --mem=< total ram in GB >G
 #SBATCH -t <maximum time in hh:mm:ss>
 
+module load <module name> #if any; delete if you built all from source
+
 export HPL_DIR="path/to/your/hpl/x"
 export BLAS_DIR="path/to/your/blas/x"
 export MPI_DIR="path/to/your/mpi/x"
