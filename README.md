@@ -25,15 +25,15 @@ This manila share was mounted at /home/. This lets things like ssh keys synchron
 We created a 500gb share and mounted it using our `mount-home-manila-share.` We sshed into each individual node and ran this script. This could be automated using a similar ssh pass set up as we used in `slurm-set-up.sh` in the future.
 
 ### Problems..
-Nothing works perfectly the first try. When trying to login to a compute node from the login node when logged in as a user, I encountered issues with the permissions for .ssh being set incorrectly. This wouldn't let the user write its own keys or read them either. The `.ssh` directory needed to have `700` permissions and the keys need `600` permissions. So, I had to set the permissions correctly. Once that was done, I realized I had to also generate keys for all of the users so they were all present in their directories (and with correct perms set). The script `ssh-gen-fix-perms.sh` goes over this.
+Nothing works perfectly the first try. When trying to login to a compute node from the login node when logged in as a user, we encountered issues with the permissions for .ssh being set incorrectly. This wouldn't let the user write its own keys or read them either. The `.ssh` directory needed to have `700` permissions and the keys need `600` permissions. So, we had to set the permissions correctly. Once that was done, we realized we had to also generate keys for all of the users so they were all present in their directories (and with correct perms set). The script `ssh-gen-fix-perms.sh` goes over this.
 
 #### Weird error
-When fixing the SSH perms, I tried to run the script like
+When fixing the SSH perms, we tried to run the script like
 
 ```
 sudo ssh-gen-fix-perms.sh
 ```
-That didn't work, and I got errors about `[[` not being found. It turns out when you use `sudo` to run a script, instead of using bash to interpret the script, it instead defaults to `Dash` to interpret the scripts which doesn't understand `[[`. So, you need to run the script like
+That didn't work, and we got errors about `[[` not being found. It turns out when you use `sudo` to run a script, instead of using bash to interpret the script, it instead defaults to `Dash` to interpret the scripts which doesn't understand `[[`. So, you need to run the script like
 
 ```
 sudo bash ssh-gen-fix-perms.sh
