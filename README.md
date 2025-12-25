@@ -171,13 +171,13 @@ Your P x Q should multiply to your NB. It determines how your matrix is chopped 
 
 # Step 6 - Create your SLURM batch script
 
-This repo includes a template. 
+This repo includes a template. It's pretty easy to follow. A decent run is well under an hour, maybe give yourself 2. Make sure to set a time limit to prevent jobs from hanging. 
 
 # Step 7 - Submit your Job* 
 ```
 sbatch hpl.cmd
 ```
-and thats the last that you should put in your bash script!
+and thats the last that you should put in your bash script if you choose that option!
 
 To check the status of your job:
 ```
