@@ -195,6 +195,11 @@ squeue -u $USER
 ```
 If there is nothing there, your job has completed and you should look for the output files you named in your hpl.cmd script.
 
+If you decide you want to cancel the job. (either kill it or remove from queue), check the ID with squeue and then 
+```
+scancel <jobID>
+```
+
 # Step 8 - Compare to the theoretical max and decide if you are satisfied :)
 
 The theoretical max of 32-core run on AMD Milan 7713 is 1.024 TFLOPS. Try to get as close to this as you can.
