@@ -173,7 +173,7 @@ Your block size. Your matrix will get partitioned into smaller squares NB X NB. 
 
 ### P and Q
 
-Your P x Q should multiply to your NB. It determines how your matrix is chopped up. Your Q should be less than than P. In a perfect set up, the most square P and Q would perform best. Experiment with slightly rectangular ones. Why might those work better in some cases? Why Q less than P?
+Your P x Q should multiply to your number of MPI tasks (which you set in your slurm batch script). It determines how your matrix is chopped up and divided. Your Q should be less than than P. In a perfect set up, the most square P and Q would perform best. Experiment with slightly rectangular ones. Why might those work better in some cases? Why Q less than P?
 
 # Step 6 - Create your SLURM batch script
 
