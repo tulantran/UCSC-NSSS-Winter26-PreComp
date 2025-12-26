@@ -119,7 +119,7 @@ This is a bit more complicated then just loading modules but gets to the root of
 
 "Open" things obviously work on anything. Good ol' reliable. Could be cool to try configuring some other stuff too though. Do some research. How are you picking your libraries? Things to consider AMD 7713, ethernet, 32 cores total, 2 nodes, maybe virtual cluster?
 
-You will need to wget and untar or clone a directory to get these libraries. Explore whats in them first. Try not get overwhelmed. 
+You will need to wget and untar or clone a directory to get these libraries and figure out how to configure and make them. Explore whats in them first. Try not get overwhelmed. 
 
 # Step 4 - Configure and make*
 Once you've figured out your dependencies, you need to compile HPL itself. But first, we need to talk about how these dependencies are managed.
