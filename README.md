@@ -137,7 +137,7 @@ MPdir        =
 MPinc        =
 MPlib        =
 ```
-When you used `make install` after compiling your MPI, it should have installed your MPI library to the directory you gave it. Set `MPdir` to that directory. Now, the next flag, `MPinc`, is asking for the "include" directory, where all of the header files necessary for compilation live. There should be a folder called `include` inside of the `MPdir` directory that has exactly that. So, set `MPinc` to that, `$(MPdir)/include`. Then, you need to tell the compiler where the library object files are, which is what actually gets executed during runtime, versus the include files necessary for compilation. That lives in the same `MPdir` folder within a `lib` folder, and inside that folder, there should be a file called `libmpi.a`. If not, look inside that folder with `ls` and see what's there and what's missing!
+When you used `make install` after compiling your MPI, it should have installed your MPI library to the directory you gave it. Set `MPdir` to that directory. Now, the next flag, `MPinc`, is asking for the "include" directory, where all of the header files necessary for compilation live. There should be a folder called `include` inside of the `MPdir` directory that has exactly that. So, set `MPinc` to that, `$(MPdir)/include`. Then, you need to tell the compiler where the library object files are, which is what actually gets executed during runtime, versus the include files necessary for compilation. That lives in the same `MPdir` folder within a `lib` folder, and inside that folder, there should be a file called `libmpi.a`. If not, look inside that folder with `ls` and see what's there and what's missing! If you used a module, leave this blank.
 ### BLAS
 Now you need to tell the compiler where your BLAS comes from. Thankfully, it's pretty similar. Look for the LA variables, they should look like this:
 ```
@@ -152,7 +152,7 @@ Now you need to tell the Makefile where to find your compiler. For this project,
 ```
 CC       = 
 ```
-and set it to be the path to your `mpicc` compiler. Then, mess with `CCFLAGS`. Right now, it has a few already. But there are more you should put. Think about optimization flags with the `-O1` syntax, which is the highest one you can use? On top of that, use `-march=` and `-mtune=` flags. This tells the compiler to optimize for a specific chip. These systems use AMD Epyc Milan 7713 chips, which use Zen 3 microarchitecture (`znver3`).
+and set it to be the path to your `mpicc` compiler. Then, mess with `CCFLAGS`. Right now, it has a few already. But there are more you should put. Think about optimization flags with the `-O1` syntax, which is the highest one you can use? On top of that, use `-march=` and `-mtune=` flags. This tells the compiler to optimize for a specific chip. These systems use AMD Epyc Milan 7713 chips, which use Zen 3 microarchitecture (`znver3`). 
 
 ## Compiling!
 Now that you have written your Makefile, it's smooth sailing from here. Use `make -arch=Slugalicious -j 32` to compile for the Slugalicious architecture (specifies the Makefile you were just editing) and with 32 jobs in parallel (the login node has 32 cores, best to take advantage of that). If all goes well, there should be no errors thrown, and the executable should be placed in `bin/Slugalicious`!
