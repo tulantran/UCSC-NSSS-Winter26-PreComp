@@ -2,11 +2,10 @@
 This repo is a guide to complete a mini-competition to run and optimize HPL on a Jetstream2 cloud cluster we created, Slugalicious. Your score will be based on your GFLOPs achievement. You can clone this to get the template files included if you want but they're easily copypaste-able. Start early! Only 2 of you can have a job running at a time so you might get stuck in line if you all procrastinate. We will be killing all queued or running jobs Jan 2nd at noon. Post questions in the Discord :p, we might to office hours/check in with you guys. 
 
 
-I AM SO SAD. IF YOU WANT TO SEE WHAT THIS MESS IS SUPPOSED TO LOOK LIKE CLICK Raw ^
-
+```
 ┌────────────────────────────────────────────────────────────────────────────┐
-│                          ┌──────────────────────┐ ┌──────────────────────┐ │       This is our mini cluster!  
-│     SLUGALICIOUS         │  slimey              │ │  gooey               │ │       Slimey and gooey are the names of our 2 partitions. 
+│                          ┌──────────────────────┐ ┌──────────────────────┐ │       This is our mini cluster! Slimey and   
+│     SLUGALICIOUS         │  slimey              │ │  gooey               │ │       gooey are the names of our 2 partitions. 
 │   ┌──────────────┐       │ ┌────────────────┐   │ │ ┌────────────────┐   │ │       The login node has 32 cores.
 │   │              │       │ │ compute-1-of-4 │   │ │ │ compute-3-of-4 │   │ │       Each compute node has 16 cores.
 │   │  login node  │       │ └────────────────┘   │ │ └────────────────┘   │ │       All virtualized on AMD 7713 Milan chips. 
@@ -15,9 +14,9 @@ I AM SO SAD. IF YOU WANT TO SEE WHAT THIS MESS IS SUPPOSED TO LOOK LIKE CLICK Ra
 │                          │ └────────────────┘   │ │ └────────────────┘   │ │
 │                          └──────────────────────┘ └──────────────────────┘ │
 └────────────────────────────────────────────────────────────────────────────┘
-
+```
 # Task Overview
-You will need to complete a 2-node HPL run on Slugalicious, on either the partitions (they're identical). Try to tune this to achieve as many floating-point operations per second (FLOPS) as you can. They are all on Ubuntu Linux, using SLURM for job scheduling and connected with ethernet. Each partition consists of 2 nodes each. Since these are virtual, each node only has 16 cores but are running on an AMD Milan 7713. Your only restriction is you may not use Spack to build it. Note that you also don't have sudo permissions so you will pretty much have to build everything from source. Research as you go. The internet is awesome.
+You will need to complete a 2-node HPL run on Slugalicious, on either of the partitions (they're identical). Try to tune this to achieve as many floating-point operations per second (FLOPS) as you can. They are all on Ubuntu Linux, using SLURM for job scheduling and connected with ethernet. Each partition consists of 2 nodes each. Since these are virtual, each node only has 16 cores but are running on an AMD Milan 7713. Your only restriction is you may not use Spack to build it. Note that you also don't have sudo permissions so you will pretty much have to build everything from source. Research as you go. The internet is awesome.
 
 You MUST submit the following files:
 - either:
@@ -126,7 +125,7 @@ You will need to wget and untar or clone a directory to get these libraries. Exp
 Once you've figured out your dependencies, you need to compile HPL itself. But first, we need to talk about how these dependencies are managed.
 
 ## Linking is fun
-HPL depends on BLAS and MPI. You could try compiling HPL by running the `configure` script. That will make a `Makefile` you can use to then run `make`, and that should succesfully compile HPL. But that isn't a super precise way to do it. It's hard to know which versions of the dependencies the `configure` script found. And on top of that, it's hard to be certain the libraries that are present on the login node are also present on the compute nodes. If using the `configure` script works for you, and you managed to get a succesful HPL run with it, great! Use that, as it saves you some headaches. But, if it doesn't, we'll have to get our hands a little dirty. We're going to have to manually edit a template Makefile and tell the compiler which libraries we want to use.
+HPL depends on BLAS and MPI. You could try compiling HPL by running the `configure` script. That will make a `Makefile` you can use to then run `make`, and that should succesfully compile HPL. But that isn't a super precise way to do it. Sometimes it's hard to know which versions of the dependencies the `configure` script found. And on top of that, it can be hard to be certain the libraries that are present on the login node are also present on the compute nodes. If using the `configure` script works for you, and you managed to get a succesful HPL run with it, great! Use that, as it saves you some headaches. But, if it doesn't, we'll have to get our hands a little dirty. We're going to have to manually edit a template Makefile and tell the compiler which libraries we want to use.
 
 ## Telling the compiler how you want it done
 Copy the template Makefile `Make.Slugalicious` to inside of the `hpl-2.3` directory. 
@@ -157,6 +156,8 @@ and set it to be the path to your `mpicc` compiler. Then, mess with `CCFLAGS`. R
 ## Compiling!
 Now that you have written your Makefile, it's smooth sailing from here. Use `make -arch=Slugalicious -j 32` to compile for the Slugalicious architecture (specifies the Makefile you were just editing) and with 32 jobs in parallel (the login node has 32 cores, best to take advantage of that). If all goes well, there should be no errors thrown, and the executable should be placed in `bin/Slugalicious`!
 
+If you used the `configure` script, look in the `testing` directory. `xhpl` should be in there.
+
 
 # Step 5 - Create your HPL.dat
 This repo includes a template. I've put X's where we will recommend how you set these in this section. These parameters will have the greatest effect on your run. You are welcome and encouraged to play with the other ones, where you may be able to squeeze out some extra flops. [This](https://www.netlib.org/benchmark/hpl/tuning.html) will tell you what each does and how . When you submit the job using sbatch, make sure your HPL.dat is in the same directory, or specify the directory in your SLURM batch script.
@@ -167,7 +168,7 @@ This will be the dimension of your square matrix $A$ in $Ax=b$. We want to prett
 
 N = sqrt((RAM in bytes)/(8 bytes))
 
-BUT this N alone would take up our entire RAM and we need some of that for other stuff like the OS. So scale it down a bit but not too much. %85 of that is a conservative start. Push it until it tanks your performance. It can help to have this be a multiple of your NB. Where did it start to tank?
+BUT this N alone would take up our entire RAM and we need some of that for other stuff like the OS. So scale it down a bit but not too much. 85% of that is a conservative start. Push it until it tanks your performance. It can help to have this be a multiple of your NB. Where did it start to tank?
 
 ### NB
 
@@ -175,7 +176,7 @@ Your block size. Your matrix will get partitioned into smaller squares NB X NB. 
 
 ### P and Q
 
-Your P x Q should multiply to your number of MPI tasks (which you set in your slurm batch script). It determines how your matrix is chopped up and divided. Your Q should be less than than P. In a perfect set up, the most square P and Q would perform best. Experiment with slightly rectangular ones. Why might those work better in some cases? Why Q less than P?
+Your P x Q should multiply to your number of MPI tasks (which you set in your slurm batch script). It determines how your matrix is chopped up and divided, which affects how communication happens. Your Q should be less than than P. In a perfect set up, the most square P and Q would perform best. Experiment with slightly rectangular ones. Why might those work better in some cases? Why Q less than P?
 
 # Step 6 - Create your SLURM batch script
 

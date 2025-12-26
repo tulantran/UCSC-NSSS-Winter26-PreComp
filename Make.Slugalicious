@@ -175,7 +175,7 @@ CCFLAGS  = $(HPL_DEFS) -fomit-frame-pointer -Wall
 # the Fortran internals used in the BLAS library.
 #
 LINKER       = $(CC)
-RPATH        = 
+RPATH        = -Wl,-rpath,$(MPdir)/lib -Wl,-rpath,$(LAdir)/lib
 LINKFLAGS    = $(CCFLAGS) $(OMP_DEFS) $(RPATH)
 #
 ARCHIVER     = ar
