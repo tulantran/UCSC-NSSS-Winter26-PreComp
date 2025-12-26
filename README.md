@@ -207,7 +207,17 @@ The theoretical max of 32-core run on AMD Milan 7713 is 1.024 TFLOPS. Try to get
 If you are below 75% of this, there are simple things you can do that will make a huge difference.
 
 Justification: 
-- 
+- 2 instances of 16 cores for a total of 32 cores.
+- AMD EPYC 7713s have a base clock frequency of 2 GHz
+- Each core is capable of 16 double-precision floating point operations/cycle.
+  - We justify this considering AMD’s AVX2 standard for SIMD width, we operate on 256-bit vectors or 4 double-precision numbers. Per element we have a FMA doing 2 floating point operations and per core there are 2 FMA units so we have 4 x 2  x 2 = 16 floating point operations per cycle.
+
+32 cores,
+2 GHz base clock speed, 
+16 double-precision floating point operations/cycle,
+
+Theoretical Peak = 32 x 2 x 16 = 1.024 TFLOPS
+
 
 
 
