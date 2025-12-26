@@ -14,8 +14,8 @@ module load <module name> #if any; delete if you built all from source
 
 #may have to change the variable name to match your library choice, these are set to 1 assuming you have 1 task per core
 #if you know what you're doing these are threads per task
-export OPENBLAS_NUM_THREADS=1
-export OMP_NUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1 #works for openblas
+export OMP_NUM_THREADS=1 #works for openmpi
 
 # dont change these. network stuff.
 export OMPI_MCA_btl_tcp_if_include=enp1s0 
