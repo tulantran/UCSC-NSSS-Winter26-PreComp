@@ -1,5 +1,5 @@
 # Winter Classic PreCompetition
-This repo is a guide to complete a mini-competition to run and optimize HPL on a Jetstream2 cloud cluster we created, Slugalicious. Your score will be based on your GFLOPs achievement. You can clone this to get the template files included if you want but they're easily copypaste-able. Start early! Only 2 of you can have a job running at a time so you might get stuck in line if you all procrastinate. We will be killing all queued or running jobs Jan 2nd at noon. Post questions in the Discord :p, we might to office hours/check in with you guys. 
+This repo is a guide to complete a mini-competition to run and optimize HPL on a Jetstream2 cloud cluster we created, Slugalicious. Your score will be based on your GFLOPs achievement. You can clone this to get the template files included if you want but they're easily copypaste-able. Start early! Only 2 of you can have a job running at a time so you might get stuck in line if you all procrastinate. We will be killing all queued or running jobs Jan 2nd at noon. Post questions in the Discord :p, we might do office hours/check ins with you guys. 
 
 
 ```
