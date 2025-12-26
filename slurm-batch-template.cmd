@@ -12,11 +12,6 @@
 
 module load <module name> #if any; delete if you built all from source
 
-# this is a bit redundant if you manually specificied in your make file, could be nice for if you used config
-export HPL_DIR="path/to/your/hpl/x" 
-export BLAS_DIR="path/to/your/blas/x"
-export MPI_DIR="path/to/your/mpi/x"
-
 # dont change these. they are kinda niche dw abt it too much some thread safety and network stuff.
 export OPENBLAS_NUM_THREADS=1
 export OMP_NUM_THREADS=1
