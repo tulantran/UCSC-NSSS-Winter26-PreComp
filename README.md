@@ -78,10 +78,12 @@ wget "https://www.netlib.org/benchmark/hpl/hpl-2.3.tar.gz"
 to download it directly to the machine. Once you have the source code, use the `tar` command to untar the the downloaded file. You should end up with a directory called `hpl-2.3`. You then need to get its dependencies.
 
 # Step 3 - Dependencies*
-2 main things that High Performance Linpack needs to do solve Ax=b really fast:
+There are 2 main things that High Performance Linpack needs to do solve Ax=b really fast:
 
 - optimized Basic Linear Algebra Subroutines (BLAS)
+  - this performs all of the necessary mathematical computations
 - optimized Message Passing Interface (MPI)
+  - this lets the nodes talk to each other about the problem as they work through it
 
 These libraries may or may not have other dependencies you need to build depending on how you choose them. Here is how you get them:
 
