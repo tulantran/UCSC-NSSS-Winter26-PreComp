@@ -128,7 +128,11 @@ Once you've figured out your dependencies, you need to compile HPL itself. But f
 HPL depends on BLAS and MPI. You could try compiling HPL by running the `configure` script. That will make a `Makefile` you can use to then run `make`, and that should succesfully compile HPL. But that isn't a super precise way to do it. Sometimes it's hard to know which versions of the dependencies the `configure` script found. And on top of that, it can be hard to be certain the libraries that are present on the login node are also present on the compute nodes. If using the `configure` script works for you, and you managed to get a succesful HPL run with it, great! Use that, as it saves you some headaches. But, if it doesn't, we'll have to get our hands a little dirty. We're going to have to manually edit a template Makefile and tell the compiler which libraries we want to use.
 
 ## Telling the compiler how you want it done
-Copy the template Makefile `Make.Slugalicious` to inside of the `hpl-2.3` directory. 
+Copy the template Makefile `Make.Slugalicious` to inside of the `hpl-2.3` directory. You first need to tell it where the files for HPL live. Look for
+```
+TOPdir       = $(HOME)
+```
+The `$(HOME)` is a variable that has your home directory, so if your account is `user`, it expands to `/home/user`. Then, after that, you can specify where your HPL folder lives. If your folder is at something like `/home/user/software/hpl-2.3`, you'd write `$(HOME)/software/hpl-2.3`.
 ### MPI
 You first need to tell it where your MPI lives, so go find the MPI section. It should look something like
 ```
