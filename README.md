@@ -200,6 +200,12 @@ squeue -u $USER
 ```
 If there is nothing there, your job has completed and you should look for the output files you named in your hpl.cmd script.
 
+If it shows an R, great! Your job is running. To make sure things are running smoothly you can wait about a minute and check CPU and RAM usage on slimey with this command:
+```
+srun -w compute-1-of-4,compute-2-of-4 --ntasks-per-node=1 bash -c "top -n 1 -b | grep -E '^(%Cpu|MiB Mem|KiB Mem)'"
+```
+It will print approximates for your two nodes. (If your job is on gooey change the node names accordingly). There are other ways to check more accurate usage including `mpstat`, `free -k`, and extracting from `/proc/meminfo` if you care that much. But just to check things are working properly this should be fine. Things should be near maxed out, especially cpu usage. 
+
 If you decide you want to cancel the job. (either kill it or remove from queue), check the ID with squeue and then 
 ```
 scancel <jobID>
