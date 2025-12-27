@@ -172,7 +172,7 @@ This will be the dimension of your square matrix $A$ in $Ax=b$. We want to prett
 
 N = sqrt((RAM in bytes)/(8 bytes))
 
-BUT this N alone would take up our entire RAM and we need some of that for other stuff like the OS. So scale it down a bit but not too much. 85% of that is a conservative start. Push it until it tanks your performance. It can help to have this be a multiple of your NB. Where did it start to tank?
+BUT this N alone would take up our entire RAM and we need some of that for other stuff like the OS. So scale it down a bit but not too much. 85% of that is a conservative start. Push it until it tanks your performance. It can help to have this be a multiple of your NB. Where did it start to tank? AT MINIMUM YOUR N SHOULD USE AT LEAST 80% OF RAM (Same rules as [top500]{https://top500.org/})
 
 ### NB
 
@@ -213,7 +213,7 @@ scancel <jobID>
 
 # Step 8 - Compare to the theoretical max and decide if you are satisfied :)
 
-The theoretical max of 32-core run on AMD Milan 7713 is 1.024 TFLOPS. Try to get as close to this as you can. NOTE: we were somehow able to achieve more than this. We dont know how.. it may have to do with the virtualization? 
+The theoretical max of 32-core run on AMD Milan 7713 running at 2GHz is 1.024 TFLOPS. (Boosted Freq: 1.587 TFLOPS) Try to get as close to this as you can. NOTE: we were somehow able to achieve more than this. We dont know how.. it may have to do with the virtualization? 
 Maybe things are running at a boosted frequency 3.1GHz?
 
 If you are below 75% of this, there are simple things you can do that will make a huge difference.
