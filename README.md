@@ -214,6 +214,7 @@ scancel <jobID>
 # Step 8 - Compare to the theoretical max and decide if you are satisfied :)
 
 The theoretical max of 32-core run on AMD Milan 7713 is 1.024 TFLOPS. Try to get as close to this as you can. NOTE: we were somehow able to achieve more than this. We dont know how.. it may have to do with the virtualization? 
+Maybe things are running at a boosted frequency 3.1GHz?
 
 If you are below 75% of this, there are simple things you can do that will make a huge difference.
 
@@ -228,6 +229,8 @@ Justification:
 16 double-precision floating point operations/cycle,
 
 Theoretical Peak = 32 x 2 x 16 = 1.024 TFLOPS
+
+Boosted Freq Theoretical Peak = 32 x 3.1 x 16 = 1.587 TFLOPS
 
 
 
