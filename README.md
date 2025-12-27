@@ -154,7 +154,7 @@ CC       =
 and set it to be the path to your `mpicc` compiler. Then, mess with `CCFLAGS`. Right now, it has a few already. But there are more you should put. Think about optimization flags with the `-O1` syntax, which is the highest one you can use? On top of that, use `-march=` and `-mtune=` flags. This tells the compiler to optimize for a specific chip. These systems use AMD Epyc Milan 7713 chips, which use Zen 3 microarchitecture (`znver3`). 
 
 ## Compiling!
-Now that you have written your Makefile, it's smooth sailing from here. Use `make -arch=Slugalicious -j 32` to compile for the Slugalicious architecture (specifies the Makefile you were just editing) and with 32 jobs in parallel (the login node has 32 cores, best to take advantage of that). If all goes well, there should be no errors thrown, and the executable should be placed in `bin/Slugalicious`!
+Now that you have written your Makefile, it's smooth sailing from here. Use `make arch=Slugalicious -j 32` to compile for the Slugalicious architecture (specifies the Makefile you were just editing) and with 32 jobs in parallel (the login node has 32 cores, best to take advantage of that). If all goes well, there should be no errors thrown, and the executable should be placed in `bin/Slugalicious`!
 
 If you used the `configure` script, look in the `testing` directory. `xhpl` should be in there.
 
