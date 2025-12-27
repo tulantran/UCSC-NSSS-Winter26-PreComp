@@ -186,7 +186,7 @@ Your P x Q should multiply to your number of MPI tasks (which you set in your sl
 
 This repo includes a template. Look at it now. It's pretty easy to follow. A decent run is well under an hour, maybe give yourself 2. Make sure to set a time limit to prevent jobs from hanging. 
 
-The one nuanced concept here is what a "task" is. This is an MPI thing. When you have MPI in your code, and you specify for example 4 tasks a.k.a MPI Ranks, your program will run 4 times in parallel BUT each process will respond differently and do different parts of the code based on its MPI Rank or ID. These processes will communicate with eachother via MPI which is slower than lower level communications obviously. Historically, programs were written with a one rank per core assumption. This is good and safe starting point. If you want to look into how to manage cores, ranks, processes and experiment its very important that your numbers match up everywhere. The PxQ in hpl.dat, the exported thread variables in the batch script, the -np when you run the job and the all the slurm task parameters need to match up. Make sure (#tasks)*(cpuspertask)=total cores obviously.
+The one nuanced concept here is what a "task" is. This is an MPI thing. When you have MPI in your code, and you specify for example 4 tasks a.k.a MPI Ranks, your program will run 4 times in parallel BUT each process will respond differently and do different parts of the code based on its MPI Rank or ID. These processes will communicate with eachother via MPI which is slower than lower level communications obviously. Historically, programs were written with a one rank per core assumption. This is good and safe starting point. If you want to look into how to manage cores, ranks, processes and experiment its very important that your numbers match up everywhere. The PxQ in hpl.dat, the exported thread variables in the batch script, the -np when you run the job and the all the slurm task parameters need to match up. Make sure (#tasks)*(cpuspertask)=total cores obviously. If you 
 
 # Step 7 - Submit your Job* 
 ```
@@ -213,9 +213,7 @@ scancel <jobID>
 
 # Step 8 - Compare to the theoretical max and decide if you are satisfied :)
 
-The theoretical max of 32-core run on AMD Milan 7713 running at 2GHz is 1.024 TFLOPS. (Boosted Freq: 1.587 TFLOPS) Try to get as close to this as you can. NOTE: we were somehow able to achieve more than this. We dont know how.. it may have to do with the virtualization? 
-Maybe things are running at a boosted frequency 3.1GHz?
-
+The theoretical max of 32-core run on AMD Milan 7713 running at a nominal freq of 2GHz is 1.024 TFLOPS. Try to get as close to this as you can. 
 If you are below 75% of this, there are simple things you can do that will make a huge difference.
 
 Justification: 
@@ -230,7 +228,7 @@ Justification:
 
 Theoretical Peak = 32 x 2 x 16 = 1.024 TFLOPS
 
-Boosted Freq Theoretical Peak = 32 x 3.1 x 16 = 1.587 TFLOPS
+NOTE: we have been achieving higher than this... my guess is because of virtualization? idk my brain hurts
 
 
 
