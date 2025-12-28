@@ -168,7 +168,7 @@ This repo includes a template. I've put X's where we will recommend how you set 
 
 ### Ns
 
-This will be the dimension of your square matrix $A$ in $Ax=b$. We want to pretty much max out the size based on how much memory we have. Given that a double precision float is 8 bytes, to get the max dimension of our matrix we divide how many bytes we have by 8 and then take the square root. Hint: Each node has 60GB RAM
+This will be the dimension of your square matrix $A$ in $Ax=b$. We want to pretty much max out the size based on how much memory we have. Given that a double precision float is 8 bytes, to get the max dimension of our matrix we divide our memory by 8 and then take the square root. Hint: Each node has 60GB RAM
 
 N = sqrt((RAM in bytes)/(8 bytes))
 
