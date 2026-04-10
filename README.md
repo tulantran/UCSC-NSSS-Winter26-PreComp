@@ -1,4 +1,5 @@
 # How we set this competition up
+This repo holds some bash scripts used to set up our specific cluster configuration. We did not follow an exact tutorial for this as we wanted to experiment and try to figure it out on our so there was a lot of trial and error. 
 
 ## Selecting nodes
 First, we needed to select the number of nodes and how many cores they'd have. We were limited to 124 total cores and 5 total instances. We wanted to have multiple SLURM partitions so we decided on having 1 32-core login node and 4 16-core compute nodes split into 2 partitions. 
