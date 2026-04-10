@@ -3,7 +3,7 @@
 This repo holds the bash scripts used to set up our specific cluster 
 configuration for the Winter Classic pre-competition. We did not follow 
 an exact tutorial — we wanted to experiment and figure it out ourselves, 
-so there was a lot of trial and error.
+so there was a lot of trial and error. This is not meant as a tutorial or to be recreated exactly, but just to document some of our process. This cluster intended to be temporary and is now spun down, so any hardcoded credentials (bad practice I know) found are no longer valid. 
 
 ## Architecture
 ```
@@ -28,7 +28,7 @@ so there was a lot of trial and error.
 
 ## Script run order
 
-Each layer depends on the previous. Run in this order:
+Each layer depends on the previous. They were run in this order, but there were also things we did manually in between. 
 
 1. `slurm-set-up.sh` — installs Munge + SLURM, distributes config to all nodes
 2. `mount-home-manila-share` — mounts shared /home via Manila/CephFS on each node
