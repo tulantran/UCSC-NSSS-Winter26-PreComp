@@ -5,7 +5,7 @@ This project documents the setup and usage of a multi-node cloud HPC cluster bui
 The system was designed to train and evaluate student teams for competitive cluster computing (IndySCC, Winter Classic Invitational), enabling reproducible benchmarking and performance-based team selection.
 
 There are two additional branches in this repo:
-- [doc_setup](https://github.com/tulantran/UCSC-NSSS-Winter26-PreComp/blob/doc_setup/README.md) documents some of the process of bulding this temporary cluster
+- [doc_setup](https://github.com/tulantran/UCSC-NSSS-Winter26-PreComp/blob/doc_setup/README.md) includes scripts used to build the cluster and documents some of the process.
 - [hbHPL](https://github.com/tulantran/UCSC-NSSS-Winter26-PreComp/blob/hbHPL/README.md) was the start of an HPL tutorial for UCSC's Hummingbird cluster, but we quickly pivoted to creating our own when the maintenence time conflicted with our schedule.
   
 # Winter Classic PreCompetition
