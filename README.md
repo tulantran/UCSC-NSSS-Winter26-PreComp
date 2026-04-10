@@ -4,14 +4,12 @@ This project documents the setup and usage of a multi-node cloud HPC cluster bui
 
 The system was designed to train and evaluate student teams for competitive cluster computing (IndySCC, Winter Classic Invitational), enabling reproducible benchmarking and performance-based team selection.
 
-## Key Features
-- Multi-node cluster provisioning on Jetstream2 (OpenStack-based infrastucture)
-- Distributed HPL benchmarking with MPI
-- Reproducible setup and execution workflows
-- Documentation for onboarding new users to HPC environments
+There are two additional branches in this repo:
+- doc_setup documents some of the process of bulding this temporary cluster
+- hbHPL was the start of an HPL tutorial for UCSC's Hummingbird cluster, but we quickly pivoted to creating our own when the maintenence time conflicted with our schedule.
   
 # Winter Classic PreCompetition
-This repo is a guide to complete a mini-competition to run and optimize HPL on a Jetstream2 cloud cluster we created, Slugalicious. Your score will be based on your GFLOPs achievement. You can clone this to get the template files included if you want but they're easily copypaste-able. Start early! Only 2 of you can have a job running at a time so you might get stuck in line if you all procrastinate. We will be killing all queued or running jobs Jan 2nd at noon. Post questions in the Discord # winter26-precomp :p, we might do office hours/check ins with you guys. 
+This main branch is a guide to complete a mini-competition to run and optimize HPL on a Jetstream2 cloud cluster we created, Slugalicious. Your score will be based on your GFLOPs achievement. You can clone this to get the template files included if you want but they're easily copypaste-able. Start early! Only 2 of you can have a job running at a time so you might get stuck in line if you all procrastinate. We will be killing all queued or running jobs Jan 2nd at noon. Post questions in the Discord # winter26-precomp :p, we might do office hours/check ins with you guys. 
 
 
 ```
