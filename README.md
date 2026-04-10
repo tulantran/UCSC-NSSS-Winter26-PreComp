@@ -6,16 +6,18 @@ an exact tutorial — we wanted to experiment and figure it out ourselves,
 so there was a lot of trial and error.
 
 ## Architecture
+```
 ┌─────────────────────────────────────────────────────────────────┐
 │                      SLUGALICIOUS                               │
 │                                                                 │
-│   ┌──────────────┐    ┌─────────────────┐  ┌─────────────────┐ │
-│   │  login node  │    │     slimey      │  │      gooey      │ │
-│   │   32 cores   │    │ compute-1-of-4  │  │ compute-3-of-4  │ │
-│   │  AMD 7713    │    │ compute-2-of-4  │  │ compute-4-of-4  │ │
-│   └──────────────┘    │  16 cores each  │  │  16 cores each  │ │
-│                       └─────────────────┘  └─────────────────┘ │
+│   ┌──────────────┐    ┌─────────────────┐  ┌─────────────────┐  │
+│   │  login node  │    │     slimey      │  │      gooey      │  │
+│   │   32 cores   │    │ compute-1-of-4  │  │ compute-3-of-4  │  │
+│   │  AMD 7713    │    │ compute-2-of-4  │  │ compute-4-of-4  │  │
+│   └──────────────┘    │  16 cores each  │  │  16 cores each  │  │
+│                       └─────────────────┘  └─────────────────┘  │
 └─────────────────────────────────────────────────────────────────┘
+```
 
 - 5 total instances, 124 total cores (Jetstream2 limit)
 - All nodes: AMD EPYC 7713, 60GB RAM
