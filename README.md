@@ -2,7 +2,7 @@
 
 This repo holds the bash scripts used to set up our specific cluster 
 configuration for the Winter Classic pre-competition. We did not follow 
-an exact tutorial — we wanted to experiment and figure it out ourselves, 
+an exact tutorial — we wanted to experiment and figure it out ourselves,as it was our first time building a cluster
 so there was a lot of trial and error. This is not meant as a tutorial or to be recreated exactly, but just to document some of our process. This cluster intended to be temporary and is now spun down, so any hardcoded credentials (bad practice I know) found are no longer valid. 
 
 ## Architecture
