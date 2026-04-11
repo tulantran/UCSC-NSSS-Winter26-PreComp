@@ -60,8 +60,8 @@ using `__user-id-sync.sh__`.
 ## Setting up the Manila share
 
 Jetstream2 doesn't let you easily set up a Manila share from the Exosphere 
-interface — you have to use the Horizon interface. __This__ guide is perfect 
-for setting it up. Use __this__ guide to log in to Horizon.
+interface — you have to use the Horizon interface. [This](https://docs.jetstream-cloud.org/ui/horizon/manila/) guide is perfect 
+for setting it up. Use [this](https://docs.jetstream-cloud.org/ui/horizon/login/) guide to log in to Horizon.
 
 Manila is OpenStack's shared filesystem service. On Jetstream2 it uses CephFS 
 as the backend. To mount it you need the Ceph monitor IPs and an access key, 
